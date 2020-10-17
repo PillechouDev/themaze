@@ -20,7 +20,7 @@ class Perroquet(Personnage):
         TODO: IS DONE on pourrait avoir un message de salutation plus varié en le tirant aléatoirement ici, ou dans le constructeur pour qu'un même perroquet salue toujours de la même façon.
         """
         discours = ['vous regarde fixement', 'vous salue bien bas', 'vous attaque avec son bec', 'vous fais une farce']
-        print("Un perroquet "+self._couleur+ "" + discours[random.randint(0,3)])
+        print("Un perroquet "+self._couleur+ " " + discours[random.randint(0,3)])
         input()
 
     def parler(self, joueur):
