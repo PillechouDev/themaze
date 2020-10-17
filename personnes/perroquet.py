@@ -5,11 +5,11 @@ class Perroquet(Personnage):
     """ Cette classe représente un Perroquet qui salue le joueur lorsqu'il arrive sur la même case, et qui répète
     bêtement ce qu'on lui dit. Le perroquet a une couleur qu'on lui passe à la création dans le constructeur. """
 
-    def __init__(self, couleur):
+    def __init__(self):
         """ Constructeur. Paramètres :
         - couleur : la couleur du perroquet (chaine de caractères)
         """
-        self._couleur = couleur
+        self._couleur = random.choice(['vert','bleu','rouge','orange','jaune','rose','violet'])
 
     def description(self):
         """ Renvoie la description du perroquet."""

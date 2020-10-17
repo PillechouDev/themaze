@@ -52,8 +52,8 @@ for i in range(70):
 
 # Ajouter des perroquets un peu partout
 for i in range(50):
-    l.deposerPersonneAleatoirement(Perroquet(random.choice(['vert','bleu','rouge','orange','jaune','rose','violet'])))
-    l.deposerPersonneAleatoirement(Clown(random.choice(['heureux', 'heureux', 'heureux', 'heureux', 'triste', 'heureux', 'heureux'])))
+    l.deposerPersonneAleatoirement(Perroquet())
+    l.deposerPersonneAleatoirement(Clown())
 
 while True:
     cls()  # Effacer la console

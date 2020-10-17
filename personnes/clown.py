@@ -5,11 +5,11 @@ class Clown(Personnage):
     """ Cette classe représente un clown qui raconte des blagues au joueur lorsqu'il arrive sur la même case
     Le clown a une humeur et si celle-ci est triste, il retire de l'énergie au joueur. """
 
-    def __init__(self, humeur):
+    def __init__(self):
         """ Constructeur. Paramètres :
         - humeur : humeur du clown (chaine de caractères)
         """
-        self._humeur = humeur
+        self._humeur = random.choice(['heureux', 'heureux', 'heureux', 'heureux', 'triste', 'heureux', 'heureux'])
 
     def description(self):
         """ Renvoie la description du clown."""
