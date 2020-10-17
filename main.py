@@ -59,7 +59,7 @@ while True:
     l.afficher()
     print()
 
-    # TODO: oulàlà que c'est mocche, utiliser un design pattern !
+    # TODO: oulàlà que c'est mocche, utiliser un design pattern  !
     action = input("Que dois-je faire ? ")
     if action == "n":
         try:

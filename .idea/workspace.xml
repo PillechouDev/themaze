@@ -31,6 +31,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
@@ -46,6 +47,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -120,9 +122,10 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1600.870/1600.0.1280.994@0.0.1600.870" timestamp="1602198435696" />
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1602929760739">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="574" y="334" key="com.intellij.ide.util.TipDialog" timestamp="1602933093612">
+      <screen x="0" y="0" width="1680" height="1010" />
     </state>
+    <state x="574" y="334" key="com.intellij.ide.util.TipDialog/0.0.1680.1010/1680.0.1768.952@0.0.1680.1010" timestamp="1602933093612" />
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602929760739" />
   </component>
 </project>
