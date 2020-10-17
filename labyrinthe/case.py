@@ -1,5 +1,5 @@
 class Case:
-    """ Une cse du labyrinthe.
+    """ Une case du labyrinthe.
     Une case possède au maxiumum 4 voisins, aux nord, sud, est et ouest. Seules les cases du bord n'ont pas de voisin, l'attribut correspondant est alors None.
     Ces références servent à la navigation dans le labyrinthe d'une case à une autre.
     Même si la case a un mur, les références vers les voisins sont stockées au niveau de la case, au cas où on pourrait casser le mur.

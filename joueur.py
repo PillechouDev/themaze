@@ -1,23 +1,22 @@
 from labyrinthe.labyrinthe import Case
 
+
 class Joueur:
 
-    def __init__(self, symbole,  energieInitiale):
+    def __init__(self, symbole, energieInitiale):
         # La case sur laquelle se situe le joueur
         self.__caseCourante = Case()
         self.__symbole = symbole
-        self.__energieMax = 70 # TODO: mettre le niveau d'énergie max en fonction du paramétrage du jeu
+        self.__energieMax = 70  # TODO: mettre le niveau d'énergie max en fonction du paramétrage du jeu
         self.__energie = 0
-        self._sac = [] # On commence avec un sac vide
+        self._sac = []  # On commence avec un sac vide
         self.setEnergie(energieInitiale)
-
 
     def getEnergie(self):
         """ Renvoie le niveau d'énergie du joueur. """
         return self.__energie
 
-
-    def setEnergie(self,valeur):
+    def setEnergie(self, valeur):
         """ Fise l'energie du joueur à une valeur donnée, sans pouvoir dépasser le maximum autorisé. """
         self.__energie = min(valeur, self.__energieMax)
 
@@ -56,35 +55,41 @@ class Joueur:
     def getSymbole(self):
         return self.__symbole
 
-
-
     def avancerNord(self):
         caseCourante = self.__caseCourante
-        if caseCourante.estOuvertNord(): self.setCaseCourante(caseCourante.getCaseNord())
-        else: raise ValueError("Pas de passage par là...")
+        if caseCourante.estOuvertNord():
+            self.setCaseCourante(caseCourante.getCaseNord())
+        else:
+            raise ValueError("Pas de passage par là...")
 
     def avancerSud(self):
         caseCourante = self.__caseCourante
-        if caseCourante.estOuvertSud(): self.setCaseCourante(caseCourante.getCaseSud())
-        else: raise ValueError("Pas de passage par là...")
+        if caseCourante.estOuvertSud():
+            self.setCaseCourante(caseCourante.getCaseSud())
+        else:
+            raise ValueError("Pas de passage par là...")
 
     def avancerEst(self):
         caseCourante = self.__caseCourante
-        if caseCourante.estOuvertEst(): self.setCaseCourante(caseCourante.getCaseEst())
-        else: raise ValueError("Pas de passage par là...")
+        if caseCourante.estOuvertEst():
+            self.setCaseCourante(caseCourante.getCaseEst())
+        else:
+            raise ValueError("Pas de passage par là...")
 
     def avancerOuest(self):
         caseCourante = self.__caseCourante
-        if caseCourante.estOuvertOuest(): self.setCaseCourante(caseCourante.getCaseOuest())
-        else: raise ValueError("Pas de passage par là...")
+        if caseCourante.estOuvertOuest():
+            self.setCaseCourante(caseCourante.getCaseOuest())
+        else:
+            raise ValueError("Pas de passage par là...")
 
     def printEnergie(self):
         """ Petite fonction utilitaire pour afficher la jauge d'énergie sur la console. """
-        print(" ENERGIE " + ">"*self.__energie + " "*(self.__energieMax-self.__energie) + "|")
+        print(" ENERGIE " + ">" * self.__energie + " " * (self.__energieMax - self.__energie) + "|")
 
     def getSac(self):
         return self._sac
 
-    def mettreObjetDansLeSac(self,objet):
+    def mettreObjetDansLeSac(self, objet):
         """ Met l'objet passé en paramètre dans le sac du joueur."""
         self._sac.append(objet)
