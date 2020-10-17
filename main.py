@@ -4,7 +4,7 @@ from joueur import Joueur
 from objets.potion import Potion
 from personnes.perroquet import Perroquet
 from personnes.clown import Clown
-
+from objets.tresor import Tresor
 
 import random
 
@@ -55,7 +55,12 @@ for i in range(50):
     l.deposerPersonneAleatoirement(Perroquet())
     l.deposerPersonneAleatoirement(Clown())
 
-while True:
+#Ajouter un trésor
+tresor = Tresor()
+l.deposerObjetAleatoirement(tresor)
+
+tresorTrouve = False
+while tresorTrouve != True:
     cls()  # Effacer la console
     joueur.printEnergie()
     print()
@@ -115,6 +120,9 @@ while True:
             for objet in case.getObjets():
                 objet.ramasser(joueur)
                 print(" - " + objet.description())
+                if(objet == tresor):
+                    print("Vous avez trouvé le trésor légendaire et terminé votre quête !!")
+                    tresorTrouve = True
             case.getObjets().clear() # On est obliger de tout supprimer après avoir ramassé, car on ne peut pas modifier la liste sur laquelle on itere...
         input()
 
