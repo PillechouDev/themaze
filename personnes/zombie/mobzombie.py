@@ -14,10 +14,12 @@ class MobZombie(Personnage):
         - vie: les points de vie du zombie
         - dégat: les dégats que le zombie inflige
         - vitesse : vitesse du zombie que l'on compare à celle du joueur pour savoir qui attaque en premier
+        - agilité: plus l'agilité est faible plus le zombie a de chance d'esquiver la balle (voir la méthode esquive)
         """
         self._vie = 20
         self._degat = 5
         self._vitesse = 2
+        self._agilite = 10
 
     def description(self):
         """ Renvoie la description du zombie."""
@@ -42,7 +44,7 @@ class MobZombie(Personnage):
     def esquive(self, joueur):
         """lorsque le joueur attaque, le zombie a une chance d'esquiver la balle
         pour le zombie normal, on considère qu'il a une chance sur 10 d'esquiver la balle"""
-        chance = random.randint(1,10)
+        chance = random.randint(1,self._agilite)
         if chance == 1:
         #le zombie esquive la balle
             print("le zombie esquive la balle")
