@@ -1,6 +1,6 @@
-from zombie import MobZombie
+from personnes.zombie.zombieClass import zombieClass
 
-class Gollum(MobZombie):
+class Gollum(zombieClass):
     """ Cette classe représente un gollum.
     Les gollums sont des zombies plus agiles qui lachent du poison"""
 
@@ -8,6 +8,7 @@ class Gollum(MobZombie):
         """ Constructeur. Paramètres :
         - vitesse : on ne change que la vitesse du chien
         """
+        super().__init__()
         self._vie = 10
         self._vitesse = 4
         self._agilite = 2

@@ -1,15 +1,15 @@
-from zombie import MobZombie
+from personnes.zombie.zombieClass import zombieClass
 
-class Dog(MobZombie):
+class Dog(zombieClass):
     """ Cette classe représente un zombie chien.
     Les zombies chiens sont beaucoup plus rapide qu'un zombie classique"""
 
     def __init__(self):
-        """ Constructeur. Paramètres :
-        - vitesse : on ne change que la vitesse du chien
+        """ Constructeur.
+        - _vitesse : on ne change que la vitesse du chien
         """
-
-        self._vitesse = 6
+        super().__init__() # Init les attribut de la classe parent !
+        self._vitesse = 2
 
     def description(self):
         """ Renvoie la description du chien zombie."""
@@ -18,6 +18,7 @@ class Dog(MobZombie):
     def rencontrer(self, joueur):
         """ Affiche un message de salutation au joueur.
         """
+        #Je pense qu'il manque des interraction (Elif des différenters situtation)
         discours = ['vous attaque', 'crie', 'vous cours dessus', 'hurle']
         print("Un chien zombie " + " " + discours[random.randint(0,3)])
         input()
@@ -33,7 +34,7 @@ class Dog(MobZombie):
         sac = joueur.getSac()
         if "Chair putréfiée" in sac:
             print("Le chien zombie semble être attiré par la chair putréfiée dans votre sac")
-            print("Vous décidez de lui donner")
+            print("Vous décidez de lui donner") # Pourquoi pas laisser le chois au joueur ? :)
             print("Le chien se laisse caresser tandis qu'il mange la chair de zombie")
             print("Le chien vous laisse partir !")
         else:
