@@ -1,0 +1,3 @@
+"""
+Classe du mob zombie
+"""

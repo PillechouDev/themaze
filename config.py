@@ -28,7 +28,7 @@ class Config:
         elif self.difficulte ==1:
             return 20
         elif self.difficulte == 2:
-                return 30
+            return 30
 
     def getHeight(self):
         if self.difficulte == 0:
@@ -41,4 +41,4 @@ class Config:
             return 25
 
     def showMenu(self):
-        print
+        print('ceci est menu de Manu')

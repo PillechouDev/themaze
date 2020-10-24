@@ -1,6 +1,6 @@
 from labyrinthe.labyrinthe import Case
 
-
+#TODO : Système money
 class Joueur:
 
     def __init__(self, symbole, energieInitiale):
