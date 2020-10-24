@@ -1,0 +1,3 @@
+"""
+Classe mère gun
+"""
