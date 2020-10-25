@@ -2,6 +2,7 @@ from labyrinthe.labyrinthe import Labyrinthe
 from joueur import Joueur
 
 from objets.potion import Potion
+from personnes.dempsey import Dempsey
 from personnes.perroquet import Perroquet
 from personnes.clown import Clown
 from objets.tresor import Tresor
@@ -19,20 +20,20 @@ cls()
 
 print("""
 
-   .____                                                          
-   |    |    ____                                                 
-   |    |  _/ __ \                                                
-   |    |__\  ___/                                                
-   |_______ \___  >                                               
-           \/   \/                                                
-.____          ___.                 .__        __  .__            
-|    |   _____ \_ |__ ___.__._______|__| _____/  |_|  |__   ____  
-|    |   \__  \ | __ <   |  |\_  __ \  |/    \   __\  |  \_/ __ \ 
-|    |___ / __ \| \_\ \___  | |  | \/  |   |  \  | |   Y  \  ___/ 
+   .____
+   |    |    ____
+   |    |  _/ __ \
+   |    |__\  ___/
+   |_______ \___  >
+           \/   \/
+.____          ___.                 .__        __  .__
+|    |   _____ \_ |__ ___.__._______|__| _____/  |_|  |__   ____
+|    |   \__  \ | __ <   |  |\_  __ \  |/    \   __\  |  \_/ __ \
+|    |___ / __ \| \_\ \___  | |  | \/  |   |  \  | |   Y  \  ___/
 |_______ (____  /___  / ____| |__|  |__|___|  /__| |___|  /\___  >
         \/    \/    \/\/                    \/          \/     \/
-        
-         
+
+
 """)
 input("   Appuyer sur 'Entrée' pour entrer dans le labyrinthe")
 
@@ -52,12 +53,15 @@ for i in range(70):
 
 # Ajouter des perroquets un peu partout
 for i in range(50):
-    l.deposerPersonneAleatoirement(Perroquet())
-    l.deposerPersonneAleatoirement(Clown())
+#    l.deposerPersonneAleatoirement(Perroquet())
+#    l.deposerPersonneAleatoirement(Clown())
+    l.deposerPersonneAleatoirement(Dempsey())
+
 
 #Ajouter un trésor
 tresor = Tresor()
 l.deposerObjetAleatoirement(tresor)
+#l.deposerPersonneAleatoirement(Dempsey())
 
 tresorTrouve = False
 while tresorTrouve != True:

@@ -2,6 +2,7 @@ import random
 from labyrinthe.case import Case
 
 
+
 class Labyrinthe:
     """ La classe Labyrinthe représente un ensemble de cases ajencées entre elles pour former un labyrinthe.
     L'algorithme utilisé pour générer un Labyrinthe aléatoirement est celui de fusion aléatoire de chemin présentés
@@ -84,6 +85,8 @@ class Labyrinthe:
 
 
 
+
+
     def ouvrirMurs(self):
         """ Implémente l'algorithme de génération du labyrinthe, en partant d'un labyrinthe dont tous les murs sont
         fermés.
@@ -142,5 +145,3 @@ class Labyrinthe:
                     nbMursSupprimes += 1
 
             murs.remove(murASupprimer)
-
-
