@@ -1,5 +1,6 @@
 from personnage import Personnage
 from joueur import Joueur
+from objets.cleinvoc import CleInvoc
 import random
 
 
@@ -18,14 +19,24 @@ class Dempsey (Personnage):
 
 
     def parler(self, joueur):
-
-        if "ClefInvoc" in sac :
-            print("Dégage !! je t'ai deja donné ce que j'avais")
-        else:
+        sac = joueur.getSac()
+        if (len(sac)) == 0:
             print("Dempsey : tiens j'ai trouvé quelque chose qui pourrait etre utile camarade")
             entree = input("#> Voulez vous prendre l'objet de forme sphérique qu'il vous tend ? [o/n]")
             if entree in ['o', 'O', 'OUI', 'oui']:
-                joueur.mettreObjetDansLeSac("ClefInvoc")
+                joueur.mettreObjetDansLeSac(CleInvoc())
                 print("vous avez à present une clef spécial dans votre sac")
             else:
                 print("vous avez refusé l'objet")
+        else:
+            for obj in sac:
+                if obj.description() == "ClefInvocation":
+                    print("Dégage !! je t'ai deja donné ce que j'avais")
+                else:
+                    print("Dempsey : tiens j'ai trouvé quelque chose qui pourrait etre utile camarade")
+                    entree = input("#> Voulez vous prendre l'objet de forme sphérique qu'il vous tend ? [o/n]")
+                    if entree in ['o', 'O', 'OUI', 'oui']:
+                        joueur.mettreObjetDansLeSac(CleInvoc())
+                        print("vous avez à present une clef spécial dans votre sac")
+                    else:
+                        print("vous avez refusé l'objet")
