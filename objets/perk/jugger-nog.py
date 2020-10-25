@@ -7,10 +7,14 @@ class juggerNog(perk):
 
     def __init__(self):
         self.prix = 2500
+        self.electricity = False
 
 
     def acheter(self, joueur):
-        if(joueur.argent >= self.prix):
-            joueur.vie *= 2
+        if(self.electricity == True): #En attendant
+            if(joueur.argent >= self.prix):
+                joueur.vie *= 2
+            else:
+                return "Désolé, vous n'avez pas assez d'argent."
         else:
-            return "Désolé, vous n'avez pas assez d'argent."
+            return "Le courant n'est pas activé."
