@@ -1,8 +1,9 @@
 from labyrinthe.labyrinthe import Labyrinthe
 from joueur import Joueur
+from objets.machine.Electricite import Electricite
 
 from objets.potion import Potion
-from personnes.Nikolai import Dempsey
+from personnes.Dempsey import Dempsey
 from personnes.perroquet import Perroquet
 from personnes.clown import Clown
 from objets.tresor import Tresor
