@@ -1,6 +1,7 @@
 from labyrinthe.labyrinthe import Case
 
-#TODO : Système money
+
+# TODO : Système money
 class Joueur:
 
     def __init__(self, symbole, energieInitiale):
@@ -10,6 +11,7 @@ class Joueur:
         self.__energieMax = 70  # TODO: mettre le niveau d'énergie max en fonction du paramétrage du jeu
         self.__energie = 0
         self._sac = []  # On commence avec un sac vide
+        self._argent = 500
         self.setEnergie(energieInitiale)
 
     def getEnergie(self):
@@ -93,3 +95,26 @@ class Joueur:
     def mettreObjetDansLeSac(self, objet):
         """ Met l'objet passé en paramètre dans le sac du joueur."""
         self._sac.append(objet)
+
+    def removeArgent(self, nombre):
+        """
+        :param nombre: nombre d'argent à retirer
+        :return: True si l'opération est réussie sinon un False avec un message
+        """
+        if (nombre >= self._argent):
+            self._argent -= nombre
+            return True
+        else:
+            print("Vous n'avez pas assez pour cette opération")
+            return False
+
+    def addArgent(self, nombre):
+        """
+        :param nombre: nombre d'argent à ajouter
+        :return: True si l'opération est réussie sinon un False
+        """
+        try:
+            self._argent += nombre
+            return True
+        except SystemError:
+            return False
