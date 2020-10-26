@@ -1,9 +1,9 @@
 """
 Double dégat sur les armes
 """
-from perk import perk
+from objets.machine.Machine import Machine
 
-class doubleTap(perk):
+class doubleTap(Machine):
 
     def __init(self):
         self.prix = 2000

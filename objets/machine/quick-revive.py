@@ -1,10 +1,10 @@
 """
 Permet une seconde chance au joueur sans vie
 """
-from perk import perk
+from objets.machine.Machine import Machine
 
 
-class quickRevive(perk):
+class quickRevive(Machine):
 
     def __init__(self):
         self.prix = 3000

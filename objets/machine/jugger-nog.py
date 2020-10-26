@@ -1,9 +1,9 @@
-from perk import perk
+from objets.machine.Machine import Machine
 """
 le joueur à plus de vie
 """
 
-class juggerNog(perk):
+class juggerNog(Machine):
 
     def __init__(self):
         self.prix = 2500

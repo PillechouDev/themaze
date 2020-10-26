@@ -1,5 +1,7 @@
-
-
+from objets.cleinvoc import CleInvoc
+from personnage import Personnage
+from joueur import Joueur
+import random
 
 class Dempsey (Personnage):
     """ Cette classe représente un Perroquet qui salue le joueur lorsqu'il arrive sur la même case, et qui répète

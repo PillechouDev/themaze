@@ -2,9 +2,9 @@
 Permet de transporter plus d'objet => Inclure limite au sac
 
 """
-from perk import perk
+from objets.machine.Machine import Machine
 
-class muleKick(perk):
+class muleKick(Machine):
 
     def __init__(self):
         self.prix = 2000
