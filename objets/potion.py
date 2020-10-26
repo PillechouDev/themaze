@@ -1,5 +1,6 @@
 from objet import ObjetRamassable
 
+
 class Potion(ObjetRamassable):
     """ Représente une potion qui redonne de l'énergie au joueur lorsqu'il la boit. """
 
