@@ -1,12 +1,16 @@
-from objets.Cleinvoc import CleInvoc
 from personnage import Personnage
 from joueur import Joueur
+from objets.Cleinvoc import CleInvoc
 import random
+
+
+
 
 class Dempsey (Personnage):
     """ Cette classe représente un Perroquet qui salue le joueur lorsqu'il arrive sur la même case, et qui répète
     bêtement ce qu'on lui dit. Le perroquet a une couleur qu'on lui passe à la création dans le constructeur. """
 
+    
 
     def description(self):
         return "Tank Dempsey"

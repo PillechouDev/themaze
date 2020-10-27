@@ -12,6 +12,7 @@ class Personnage:
     def parler(self, joueur):
         """ Cette méthode est appelée lorsque le joueur fait l'action de parler avec la personne."""
         raise AbstractMethodCallException() # Méthode abstraite
+        
 
     def description(self):
         """ Renvoie une description de la personne, pour pouvoir l'afficher. """
