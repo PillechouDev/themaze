@@ -2,7 +2,7 @@ from config import Config
 from labyrinthe.labyrinthe import Labyrinthe
 from joueur import Joueur
 from objets.machine.Electricite import Electricite
-from personnes.Boite import Boite
+
 
 from objets.potion import Potion
 from personnes.Dempsey import Dempsey
@@ -61,6 +61,7 @@ for i in range(50):
 #    l.deposerPersonneAleatoirement(Perroquet())
 #    l.deposerPersonneAleatoirement(Clown())
  #   l.deposerPersonneAleatoirement(Nikolai.getInstance())
+     l.deposerPersonneAleatoirement(Dempsey.getInstance())
 
 
 

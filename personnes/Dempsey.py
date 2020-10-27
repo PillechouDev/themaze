@@ -10,7 +10,16 @@ class Dempsey (Personnage):
     """ Cette classe représente un Perroquet qui salue le joueur lorsqu'il arrive sur la même case, et qui répète
     bêtement ce qu'on lui dit. Le perroquet a une couleur qu'on lui passe à la création dans le constructeur. """
 
-    
+    instance = None
+
+    @staticmethod
+    def getInstance():
+        """
+        :return: Instance de Nikolai
+        """
+        if Dempsey.instance is None:
+            Dempsey.instance = Dempsey()
+        return Dempsey.instance
 
     def description(self):
         return "Tank Dempsey"
@@ -28,20 +37,20 @@ class Dempsey (Personnage):
             print("Dempsey : tiens j'ai trouvé quelque chose qui pourrait etre utile camarade")
             entree = input("#> Voulez vous prendre l'objet de forme sphérique qu'il vous tend ? [o/n]")
             if entree in ['o', 'O', 'OUI', 'oui']:
-                joueur.mettreObjetDansLeSac(CleInvoc())
+                joueur.mettreObjetDansLeSac(CleInvoc.getInstance())
                 print("vous avez à present une clef spécial dans votre sac")
             else:
                 print("vous avez refusé l'objet")
         else:
             #si le sac n'est pas vide, on fait une boucle pour savoir si la clé d'invocation est déjà présente
             for obj in sac:
-                if obj.description() == "ClefInvocation":
+                if obj == CleInvoc.getInstance():
                     print("Dégage !! je t'ai deja donné ce que j'avais")
                 else:
                     print("Dempsey : tiens j'ai trouvé quelque chose qui pourrait etre utile camarade")
                     entree = input("#> Voulez vous prendre l'objet de forme sphérique qu'il vous tend ? [o/n]")
                     if entree in ['o', 'O', 'OUI', 'oui']:
-                        joueur.mettreObjetDansLeSac(CleInvoc())
+                        joueur.mettreObjetDansLeSac(CleInvoc.getInstance())
                         print("vous avez à present une clef spécial dans votre sac")
                     else:
                         print("vous avez refusé l'objet")
