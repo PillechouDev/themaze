@@ -6,6 +6,7 @@ from personnes.Boite import Boite
 
 from objets.potion import Potion
 from personnes.Dempsey import Dempsey
+from personnes.Nikolai import Nikolai
 from personnes.perroquet import Perroquet
 from personnes.clown import Clown
 from objets.tresor import Tresor
@@ -45,7 +46,7 @@ cls()
 
 # Création des objets
 # TODOCHECK: récupérer les attributs via un menu de configuration
-l = Labyrinthe(Config.getInstance().getHeight(),Config.getInstance().getWidth())
+l = Labyrinthe(Config.getInstance().getWidth(),Config.getInstance().getHeight())
 joueur = Joueur("X",100)
 l.deposerJoueurAleatoirement(joueur)
 
@@ -59,7 +60,7 @@ for i in range(70):
 for i in range(50):
 #    l.deposerPersonneAleatoirement(Perroquet())
 #    l.deposerPersonneAleatoirement(Clown())
-    l.deposerPersonneAleatoirement(Dempsey())
+ #   l.deposerPersonneAleatoirement(Nikolai.getInstance())
 
 
 
