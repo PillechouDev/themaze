@@ -1,7 +1,11 @@
 from objet import ObjetRamassable
 
-
+"""
+Classe faite par : Yohan Widogue
+"""
 class Vodka(ObjetRamassable):
+    """ Cette classe représente la bouteille donnée par Nikolia , fait en singleton car il y'a qu'une seule et unique instance sur le jeu """
+
     instance = None
 
     @staticmethod

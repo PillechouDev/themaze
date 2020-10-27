@@ -11,8 +11,8 @@ class Joueur:
         self.__energieMax = Config.getInstance().getMaxEnergie()  # TODOCHECK: mettre le niveau d'énergie max en fonction du paramétrage du jeu
         self.__energie = 0
         self._sac = []  # On commence avec un sac vide
-        self._argent = 500
-        self.nom = ""
+        self._argent = 500 #Ajout de l'argent
+        self.nom = "" #Ajout d'un nom pour un peu plus d'interaction  et d'immersion
         self.setEnergie(energieInitiale)
 
     def getEnergie(self):
@@ -99,6 +99,7 @@ class Joueur:
 
     def removeArgent(self, nombre):
         """
+        Retire l'argent au joueur
         :param nombre: nombre d'argent à retirer
         :return: True si l'opération est réussie sinon un False avec un message
         """
@@ -111,6 +112,7 @@ class Joueur:
 
     def addArgent(self, nombre):
         """
+        Ajoute l'argent au joueur
         :param nombre: nombre d'argent à ajouter
         :return: True si l'opération est réussie sinon un False
         """
@@ -121,10 +123,17 @@ class Joueur:
             return False
 
     def setNom(self, nomdonne):
+        """
+        :param nomdonne: Nom à set
+        :return: none
+        """
         try:
             self.nom = nomdonne
         except:
             pass
 
     def getNom(self):
+        """
+        :return: Nom du joueur
+        """
         return self.nom

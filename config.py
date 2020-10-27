@@ -1,9 +1,12 @@
-from joueur import Joueur
 
+"""
 
+Classe faite par Yohan Widogue
+"""
+#TODO : Nombre de panneau electrique
 class Config:
     """
-    Classe de configuration pour le jeu
+    Classe de configuration pour le jeu en singleton car il y'a qu'une seule instence de Config
     """
     instance = None
 
@@ -18,12 +21,10 @@ class Config:
         self.difficulte = 1  #Diffuculté du jeu ( 0 easy , 1 normal , 2 hard )
 
 
-
-    def setDifficult(self,difficult):
-        self.difficulte=difficult
-
-
     def getWidth(self):
+        """
+        :return: Largeur du labyrinthe en fonction de la difficulté
+        """
         if self.difficulte ==0:
             return 10
         elif self.difficulte ==1:
@@ -32,6 +33,9 @@ class Config:
             return 30
 
     def getHeight(self):
+        """
+        :return: Hauteur du labyrinthe en fonction de la difficulté
+        """
         if self.difficulte == 0:
             return 5
 
@@ -42,6 +46,9 @@ class Config:
             return 25
 
     def getMaxEnergie(self):
+        """
+        :return: Le maximum d'énérgie que le joueur peut avoir de base
+        """
         if self.difficulte == 0:
             return 80
         elif self.difficulte == 1:
@@ -50,6 +57,11 @@ class Config:
             return 60
 
     def showMenu(self,joueur):
+        """
+        Permet d'afficher le menu des paramètres
+        :param joueur: Le joueur
+        :return: Menu de config
+        """
         print('PARAMETRE DE JEU : \n ______________\n')
         print("1.Difficulté")
         print("2.Pseudo")
@@ -72,10 +84,3 @@ class Config:
         except ValueError:
             print("Entrez une valeur correct")
             self.showMenu(joueur)
-
-
-
-
-"""j = Joueur("f",70)
-Config.getInstance().showMenu(j)
-print(j.getNom())"""

@@ -6,7 +6,15 @@ from personnage import Personnage
 
 
 class Maxis(Personnage):
-    """ Cette classe représente Maxis , après avoir parler et récupérer tout les objets des 4 personnage , donne fin au jeu"""
+    """ Cette classe représente Maxis , après avoir parler et récupérer tout les objets des 4 personnage , donne fin au jeu, fait en singleton car il y'a qu'une seule instance sur le jeu """
+    instance = None
+
+    @staticmethod
+    def getInstance():
+        if Maxis.instance is None:
+            Maxis.instance = Maxis()
+        return Maxis.instance
+
     def __init__(self):
         """
         Les attribut permettent de savoir si le joueur ramenne bien les objets à Maxis
@@ -32,6 +40,9 @@ class Maxis(Personnage):
                 print("Mais ton sac est vide , tu n'a pas le droit de me mentir ! \n")
             elif(len(sac)) >0:
                 for obj in sac:
+                    """
+                    Ici on boucle pour savoir si les intence son présent dans le sac
+                    """
                     if obj == Vodka.getInstance():
                         self.nikolai=True
                         print("Tu as la bouteille de vodka de Nikolai ! Il à sombrée dans l'alcool à cause de son désespoir ! ")
@@ -46,6 +57,7 @@ class Maxis(Personnage):
                         print(ObjetRichto.getInstance().description)
 
             if self.richtofen ==True and self.dempsey==True and self.takeo==True and self.nikolai==True:
+                #Si tout les objets ont été récolté alors c'est la fin de la partie
                 print("Oh tu ma tout trouvé merci beaucoup")
                 #TODO : END GAME
 
