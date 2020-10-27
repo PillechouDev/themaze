@@ -1,4 +1,4 @@
-from objets.cleinvoc import CleInvoc
+from objets.Cleinvoc import CleInvoc
 from personnage import Personnage
 from joueur import Joueur
 import random

@@ -12,6 +12,7 @@ class Joueur:
         self.__energie = 0
         self._sac = []  # On commence avec un sac vide
         self._argent = 500
+        self.nom=""
         self.setEnergie(energieInitiale)
 
     def getEnergie(self):
@@ -118,3 +119,9 @@ class Joueur:
             return True
         except SystemError:
             return False
+    def setNom(self):
+        try:
+            self.nom=input("Veuillez saisir votre pseudo : ")
+        except:
+            pass
+    def getNom(self):return self.nom

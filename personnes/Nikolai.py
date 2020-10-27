@@ -23,7 +23,7 @@ class Nikolai(Personnage):
             print("Nikolai : Faut que j'arrette de boire... Tiens ma vodka c'est ma dernière")
             entree = input("#> Voulez vous prendre sa vodka ? [o/n]")
             if entree in ['o', 'O', 'OUI', 'oui']:
-                joueur.mettreObjetDansLeSac(Vodka.ramasser(joueur))
+                joueur.mettreObjetDansLeSac(Vodka.getInstance().ramasser(joueur))
                 print("vous avez à present une bouteille de vodka dans votre sac")
             elif entree in ['n','N','NON','non']:
                 print("vous avez refusé l'objet")
@@ -33,14 +33,14 @@ class Nikolai(Personnage):
         else:
             #si le sac n'est pas vide, on fait une boucle pour savoir si la clé d'invocation est déjà présente
             for obj in sac:
-                if obj.description() == "Vodka":
+                if obj == Vodka.getInstance():
                     print("Salut camarade , je viens de donner ce que j'avais ... \n Oh mince peut être que le Capitalisme te met dans le rouge ? \n Tien voici 500 $")
                     joueur.addArgent(500)
                 else:
                     print("Nikolai : Faut que j'arrette de boire... Tiens ma vodka c'est ma dernière")
                     entree = input("#> Voulez vous prendre sa vodka ? [o/n]")
                     if entree in ['o', 'O', 'OUI', 'oui']:
-                        joueur.mettreObjetDansLeSac(Vodka.ramasser(joueur))
+                        joueur.mettreObjetDansLeSac(Vodka.getInstance().ramasser(joueur))
                         print("vous avez à present une bouteille de vodka dans votre sac")
                     elif entree in ['n', 'N', 'NON', 'non']:
                         print("vous avez refusé l'objet")
