@@ -14,7 +14,7 @@ class Labyrinthe:
     def genererLabyrinthe():
         """ Méthode statique qui permet de générer un Labyrinthe aux dimensions paramétrées du jeu (facile/moyen/difficile par exemple) """
         ##
-        # TODO: Mettre en place un système de paramétrage du jeu et l'utiliser ici pour renvoyer un Labyrinthe de la bonne dimension.
+        # TODOcheck: Mettre en place un système de paramétrage du jeu et l'utiliser ici pour renvoyer un Labyrinthe de la bonne dimension.
         ## Ex.: facile : 10x10, moyen : 20x20, difficile : 20x40
         pass
 

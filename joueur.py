@@ -1,5 +1,5 @@
+from config import Config
 from labyrinthe.labyrinthe import Case
-
 
 
 class Joueur:
@@ -8,11 +8,11 @@ class Joueur:
         # La case sur laquelle se situe le joueur
         self.__caseCourante = Case()
         self.__symbole = symbole
-        self.__energieMax = 70  # TODO: mettre le niveau d'énergie max en fonction du paramétrage du jeu
+        self.__energieMax = Config.getInstance().getMaxEnergie()  # TODOCHECK: mettre le niveau d'énergie max en fonction du paramétrage du jeu
         self.__energie = 0
         self._sac = []  # On commence avec un sac vide
         self._argent = 500
-        self.nom=""
+        self.nom = ""
         self.setEnergie(energieInitiale)
 
     def getEnergie(self):
@@ -119,9 +119,12 @@ class Joueur:
             return True
         except SystemError:
             return False
-    def setNom(self):
+
+    def setNom(self, nomdonne):
         try:
-            self.nom=input("Veuillez saisir votre pseudo : ")
+            self.nom = nomdonne
         except:
             pass
-    def getNom(self):return self.nom
+
+    def getNom(self):
+        return self.nom

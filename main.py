@@ -1,3 +1,4 @@
+from config import Config
 from labyrinthe.labyrinthe import Labyrinthe
 from joueur import Joueur
 from objets.machine.Electricite import Electricite
@@ -42,8 +43,8 @@ input("   Appuyer sur 'Entrée' pour entrer dans le labyrinthe")
 cls()
 
 # Création des objets
-# TODO: récupérer les attributs via un menu de configuration
-l = Labyrinthe(20,10)
+# TODOCHECK: récupérer les attributs via un menu de configuration
+l = Labyrinthe(Config.getInstance().getHeight(),Config.getInstance().getWidth())
 joueur = Joueur("X",100)
 l.deposerJoueurAleatoirement(joueur)
 
