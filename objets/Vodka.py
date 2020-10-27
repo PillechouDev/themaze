@@ -15,7 +15,7 @@ class Vodka(ObjetRamassable):
         return Vodka.instance
 
     def ramasser(self, joueur):
-        """ Met l'objet dans le sac du joueur. """
+        """ Met l'objet dans le sac du joueur si il est par terre. """
         joueur.mettreObjetDansLeSac(self)
 
     def description(self):
