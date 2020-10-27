@@ -4,7 +4,6 @@ class CleInvoc(ObjetRamassable):
 
     instance = None
 
-    @staticmethod
     def getInstance():
         if CleInvoc.instance is None:
             CleInvoc.instance = CleInvoc()

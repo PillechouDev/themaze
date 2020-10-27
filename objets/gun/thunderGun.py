@@ -1,8 +1,17 @@
-"""
+from objet import ObjetRamassable
 
-Le mythique :)
+class ThunderGun (ObjetRamassable):
 
+    instance = None
 
-Permet d'éliminer les zombies des 2 cases au alentour
+    def getInstance():
+        if ThunderGun.instance is None:
+            ThunderGun.instance = ThunderGun()
+        return ThunderGun.instance
 
-"""
+    def __init(self):
+        damage = 100
+        munition = 5
+
+    def description(self):
+        return "ThunderGun"
