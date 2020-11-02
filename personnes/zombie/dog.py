@@ -8,7 +8,7 @@ class Dog(zombieClass):
         """ Constructeur.
         - _vitesse : on ne change que la vitesse du chien
         """
-        super().__init__() # Init les attribut de la classe parent !
+        super().__init__()
         self._vitesse = 2
 
     def description(self):
@@ -32,14 +32,20 @@ class Dog(zombieClass):
     def caresser(self, joueur):
         """caresser un chien zombie ne semble pas être une bonne idée... Sauf si on possède de la chair putréfiée"""
         sac = joueur.getSac()
-        if "Chair putréfiée" in sac:
-            print("Le chien zombie semble être attiré par la chair putréfiée dans votre sac")
-            print("Vous décidez de lui donner") # Pourquoi pas laisser le chois au joueur ? :)
-            print("Le chien se laisse caresser tandis qu'il mange la chair de zombie")
-            print("Le chien vous laisse partir !")
-        else:
-            print("Le chien vous mord la main")
-            #joueur prend des dégats
+        if (len(sac)) == 0:
+            if "Chair putréfiée" in sac:
+                print("Le chien vous mord la main")
+
+            else:
+                for obj in sac:
+                    if obj == "Un morceau de chair de zombie":
+                        print("Le chien zombie semble être attiré par la chair putréfiée dans votre sac")
+                        print("Vous décidez de lui donner")
+                        print("Le chien se laisse caresser tandis qu'il mange la chair de zombie")
+                        print("Le chien vous laisse partir !")
+
+
+
 
     # def subir(self, joueur):
     """
