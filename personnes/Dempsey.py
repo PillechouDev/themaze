@@ -14,9 +14,6 @@ class Dempsey (Personnage):
 
     @staticmethod
     def getInstance():
-        """
-        :return: Instance de Nikolai
-        """
         if Dempsey.instance is None:
             Dempsey.instance = Dempsey()
         return Dempsey.instance
