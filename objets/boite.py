@@ -1,5 +1,8 @@
 from exceptions import AbstractMethodCallException
-
+from objets.gun.M14 import M14
+from objets.gun.Galil import Galil
+from objets.gun.L96A1 import L96A1
+from objets.gun.ThunderGun import ThunderGun
 
 class Boite:
 
@@ -16,7 +19,7 @@ class Boite:
         if(joueur.argent >= self.prix):
 
             contenus = ['M14 (arme de poing)', 'L96A1 (sniper)', 'Galil', 'ThunderGun', 'rien du tout']
-            print("vous avez eu :"+ discours[random.randint(0,3)])
+            print("vous avez eu :"+ discours[random.randint(0,4)])
             if contenus == 'M14 (arme de poing)':
                 joueur.mettreObjetDansLeSac(M14.getInstance())
 
