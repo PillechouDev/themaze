@@ -8,11 +8,10 @@ class quickRevive(Machine):
 
     def __init__(self):
         self.prix = 3000
-        self.electricity = False  # en attendant le courant
 
-    def acheter(self, joueur):
-        if(self.electricity == True):
-            if(joueur.argent >= self.prix):
+    def acheter(self, joueur, elec):
+        if elec.getEtat() == True:  # Dans le cadre où la classe/méthode éléctricité existe.
+            if joueur.removeArgent(self.prix):
                 while joueur.vie >= 0:
                     if(joueur.vie <= 0):
                         joueur.vie = 100  # à modfier plus tard avec les vraies valeurs de joueur

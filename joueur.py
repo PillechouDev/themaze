@@ -14,6 +14,9 @@ class Joueur:
         self._argent = 500 #Ajout de l'argent
         self.nom = "" #Ajout d'un nom pour un peu plus d'interaction  et d'immersion
         self.setEnergie(energieInitiale)
+        #Todo : Ajout atout list
+        #Todo : merthode addAtout
+        #Todo : methode getAtout
 
     def getEnergie(self):
         """ Renvoie le niveau d'énergie du joueur. """

@@ -7,13 +7,11 @@ class juggerNog(Machine):
 
     def __init__(self):
         self.prix = 2500
-        self.electricity = False
 
-
-    def acheter(self, joueur):
-        if(self.electricity == True): #En attendant
-            if(joueur.argent >= self.prix):
-                joueur.vie *= 2
+    def acheter(self, joueur, elec):
+        if elec.getEtat() == True:  # Dans le cadre où la classe/méthode éléctricité existe.
+            if joueur.removeArgent(self.prix):
+                joueur.setEnergie(joueur.getEnergie()+40)
             else:
                 return "Désolé, vous n'avez pas assez d'argent."
         else:

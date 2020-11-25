@@ -8,11 +8,10 @@ class muleKick(Machine):
 
     def __init__(self):
         self.prix = 2000
-        self.electricity = False
-    
-    def acheter(self, joueur):
-        if(self.electricity == True): #En attendant le courant
-            if(joueur.argent >= self.prix):
+
+    def acheter(self, joueur, elec):
+        if elec.getEtat() == True:  # Dans le cadre où la classe/méthode éléctricité existe.
+            if joueur.removeArgent(self.prix):
                 joueur.getSac.value += 15 #en admettant que le sac a une taille par défaut, voir dans joueur
             else:
                 return "Désolé vous n'avez pas assez d'argent."

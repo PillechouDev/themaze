@@ -57,3 +57,6 @@ class zombieClass(Personnage):
     TODO: Faire une méthode sur le joueur qui permet au joueur d'attaquer un zombie
     """
     # self._vie = """
+
+    def combat(self,joueur):
+        #todo : Systeme de combat

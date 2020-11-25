@@ -1,7 +1,8 @@
 from objets import Cleinvoc
 from objets.Katana import Katana
-from objets.ObjetRichto import ObjetRichto
+from objets.Kronorium import Kronorium
 from objets.Vodka import Vodka
+from objets.Cleinvoc import CleInvoc
 from personnage import Personnage
 
 
@@ -49,12 +50,12 @@ class Maxis(Personnage):
                     elif obj ==Katana.getInstance():
                         self.takeo=True
                         print("Le katana de Takeo , remplie d'histoire sombre")
-                    elif obj == Cleinvoc.getInstance():
+                    elif obj == CleInvoc.getInstance():
                         self.dempsey=True
                         print("La clé d'invocation ! Piece maitresse de tout une oeuvre ! ")
-                    elif obj == ObjetRichto.getInstance():
+                    elif obj == Kronorium.getInstance():
                         self.richtofen=True
-                        print(ObjetRichto.getInstance().description)
+                        print(Kronorium.getInstance().description) #Todo : Petite phrase
 
             if self.richtofen ==True and self.dempsey==True and self.takeo==True and self.nikolai==True:
                 #Si tout les objets ont été récolté alors c'est la fin de la partie

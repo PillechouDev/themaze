@@ -1,3 +1,5 @@
+import random
+
 from exceptions import AbstractMethodCallException
 from objets.gun.M14 import M14
 from objets.gun.Galil import Galil
@@ -14,12 +16,11 @@ class Boite:
 
     def utliser(self, joueur):
         """ Cette métode est appellée lorsque le joueur veut utiliser la boite"""
-        raise AbstractMethodCallException()
 
-        if(joueur.argent >= self.prix):
+        if joueur.removeArgent(950):
 
             contenus = ['M14 (arme de poing)', 'L96A1 (sniper)', 'Galil', 'ThunderGun', 'rien du tout']
-            print("vous avez eu :"+ discours[random.randint(0,4)])
+            print("vous avez eu :"+ contenus[random.randint(0,4)])
             if contenus == 'M14 (arme de poing)':
                 joueur.mettreObjetDansLeSac(M14.getInstance())
 
