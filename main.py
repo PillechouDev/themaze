@@ -1,25 +1,25 @@
 from config import Config
 from labyrinthe.labyrinthe import Labyrinthe
 from joueur import Joueur
-from objets.machine.Electricite import Electricite
-
-
 from objets.potion import Potion
 from personnes.Dempsey import Dempsey
-from personnes.Nikolai import Nikolai
-from personnes.perroquet import Perroquet
-from personnes.clown import Clown
-from objets.tresor import Tresor
-
 import random
 
 
 import os
+
+from personnes.Nikolai import Nikolai
+from personnes.Richtofen import Richtofen
+
+
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
 # now, to clear the screen
 
+
+
+#todo : Petit menu principale à faire
 cls()
 
 print("""
@@ -49,6 +49,11 @@ cls()
 l = Labyrinthe(Config.getInstance().getWidth(),Config.getInstance().getHeight())
 joueur = Joueur("X",100)
 l.deposerJoueurAleatoirement(joueur)
+l.deposerPersonneAleatoirement(Nikolai.getInstance())
+#l.deposerPersonneAleatoirement(Takeo.getInstance())
+l.deposerPersonneAleatoirement(Dempsey.getInstance())
+l.deposerPersonneAleatoirement(Richtofen.getInstance())
+
 
 # Generation de 70 potions aléatoirement
 for i in range(70):
@@ -57,21 +62,13 @@ for i in range(70):
 
 
 # Ajouter des perroquets un peu partout
-for i in range(50):
-#    l.deposerPersonneAleatoirement(Perroquet())
-#    l.deposerPersonneAleatoirement(Clown())
- #   l.deposerPersonneAleatoirement(Nikolai.getInstance())
-     l.deposerPersonneAleatoirement(Dempsey.getInstance())
+for i in range(15):
+    #todo : deposer les zombies
 
 
 
-#Ajouter un trésor
-tresor = Tresor()
-l.deposerObjetAleatoirement(tresor)
-#l.deposerPersonneAleatoirement(Dempsey())
 
-tresorTrouve = False
-while tresorTrouve != True:
+while True: #todo : endgame ?
     cls()  # Effacer la console
     joueur.printEnergie()
     print()
