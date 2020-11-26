@@ -41,16 +41,9 @@ class zombieClass(Personnage):
         """le zombie attaque le joueur selon ses dégâts"""
         joueur.perdreEnergie(self._degat)
 
-    def esquive(self, joueur):
-        """lorsque le joueur attaque, le zombie a une chance d'esquiver la balle
-        ici, on considère qu'il a une chance sur 10 d'esquiver la balle"""
-        chance = random.randint(1, self._agilite)
-        if chance == 1:
-            # le zombie esquive la balle
-            print("le zombie esquive la balle")
-        else:
-            # le zombie se prend la balle
-            print("le zombie se prend la balle")
+    def _perdrevie(self, degat):
+        self.__energie -= degat
+
 
     # def subir(self, joueur):
     """
@@ -59,4 +52,25 @@ class zombieClass(Personnage):
     # self._vie = """
 
     def combat(self,joueur):
-        #todo : Systeme de combat
+        print("Vous tentez d'attaquer le zombie")
+        """lorsque le joueur attaque, le zombie a une chance d'esquiver la balle
+        ici, on considère qu'il a une chance sur 10 d'esquiver la balle"""
+        chance = random.randint(1, self._agilite)
+        if chance == 1:
+            # le zombie esquive la balle
+            print("Le zombie esquive la balle et vous attaque")
+            joueur.perdreEnergie(self._degat)
+        else:
+            # le zombie se prend la balle
+            print("le zombie se prend la balle")
+            zombieClass._perdrevie(5)
+            if zombieClass._vie == 0:
+                print("Vous avez tué le zombie")
+            else:
+                """on conidère qu'un zombie a une chance sur deux d'attaquer après s'être prit une balle"""
+                etourdissement = random.randint(1,2)
+                if etourdissement == 1:
+                    print("Le zombie est étourdit, il ne vous attaque pas")
+                else:
+                    joueur.perdreEnergie(zombieClass._degat)
+                    print("Le zombie vous attaque, il vous enlève votre vie")
