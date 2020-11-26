@@ -1,23 +1,17 @@
-from objet import ObjetRamassable
+from gun import Gun
 
 
-
-class L96A1(ObjetRamassable):
+class L96A1(Gun):
 
     def __init(self):
+    """ ici on défni les dégats et les munitions de base """
         self._damage = 50
         self._munition = 10
 
     def description(self):
-        return "L96A1 (sniper)"
-
-    def getDamage(self, joueur):
-        for t in joueur.getAtout():
-            if t == "doubleTap":
-                return self._damage * 2
-            else:
-                return self._damage
+        """ Renvoie une description de l'objet, pour pouvoir l'afficher. """
+        return "L96A1 (un sniper très puissant de calibre 7,62)"
 
     def getMunition(self):
-
+        """ ici on récupère les munitions """
         return self._munition

@@ -1,17 +1,17 @@
-from objet import ObjetRamassable
+from gun import Gun
 
-class ThunderGun (ObjetRamassable):
 
-    instance = None
-
-    def getInstance():
-        if ThunderGun.instance is None:
-            ThunderGun.instance = ThunderGun()
-        return ThunderGun.instance
+class ThunderGun (Gun):
 
     def __init(self):
-        damage = 100
-        munition = 5
+    """ ici on défni les dégats et les munitions de base """
+        self.damage = 100
+        self.munition = 5
 
     def description(self):
-        return "ThunderGun"
+        """ Renvoie une description de l'objet, pour pouvoir l'afficher. """
+        return "ThunderGun (la célèbre arme légendaire !)"
+
+    def getMunition(self):
+        """ ici on récupère les munitions """
+        return self._munition
