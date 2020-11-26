@@ -1,17 +1,16 @@
-from objet import ObjetRamassable
+from gun import Gun
 
-class Galil (ObjetRamassable):
-
-    instance = None
-
-    def getInstance():
-        if Galil.instance is None:
-            Galil.instance = Galil()
-        return Galil.instance
+class Galil (Gun):
 
     def __init(self):
-        damage = 20
-        munition = 40
+        """ ici on défni les dégats et les munitions de base """
+        self.damage = 20
+        self.munition = 40
 
     def description(self):
-        return "Galil"
+        """ Renvoie une description de l'objet, pour pouvoir l'afficher. """
+        return "Galil (un fusil d'assault puissant de calibre 5,56)"
+
+    def getMunition(self):
+        """ ici on récupère les munitions """
+        return self._munition

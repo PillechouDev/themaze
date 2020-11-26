@@ -2,16 +2,15 @@ from objet import ObjetRamassable
 
 class M14 (ObjetRamassable):
 
-    instance = None
-
-    def getInstance():
-        if M14.instance is None:
-            M14.instance = M14()
-        return M14.instance
-
     def __init(self):
-        damage = 10
-        munition = 30
+    """ ici on défni les dégats et les munitions de base """
+        self.damage = 10
+        self.munition = 30
 
     def description(self):
-        return "M14"
+    """ Renvoie une description de l'objet, pour pouvoir l'afficher. """
+        return "M14 (un fusil tactique très célèbre)"
+
+    def getMunition(self):
+    """ ici on récupère les munitions """
+        return self._munition
