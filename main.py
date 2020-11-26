@@ -11,6 +11,8 @@ import os
 from personnes.Nikolai import Nikolai
 from personnes.Richtofen import Richtofen
 
+from themaze.personnes.zombie.zombie import Zombie
+
 
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
@@ -61,9 +63,10 @@ for i in range(70):
     l.deposerObjetAleatoirement(potion)
 
 
-# Ajouter des perroquets un peu partout
+# Ajouter des zombies un peu partout
 for i in range(15):
-    #todo : deposer les zombies
+    zombie = Zombie()
+    l.deposerPersonneAleatoirement(zombie)
 
 
 
@@ -161,6 +164,15 @@ while True: #todo : endgame ?
         else:
             for personnage in personnages:
                 personnage.parler(joueur)
+        input()
+
+    elif action == "combattre":
+        personnages = joueur.getCaseCourante().getPersonnages()
+        if len(personnages) == 0:
+            print("Vous essayez de combattre votre ombre... L'ombre a gagné")
+        else:
+            for personnage in personnages:
+                personnage.combattre(joueur)
         input()
 
 

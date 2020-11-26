@@ -17,3 +17,7 @@ class Personnage:
     def description(self):
         """ Renvoie une description de la personne, pour pouvoir l'afficher. """
         raise AbstractMethodCallException() # Méthode abstraite
+
+    def combattre(self):
+        """ Initie un combat """
+        raise AbstractMethodCallException()  # Méthode abstraite

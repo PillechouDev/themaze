@@ -7,7 +7,7 @@ import random
 from themaze.personnes.zombie.zombieClass import zombieClass
 
 
-class zombie(zombieClass):
+class Zombie(zombieClass):
     """ Cette classe représente un zombie classique. Le zombie attaque le joueur. Les intéractions sociales entre le joueur et le zombie
     sont limitées du fait que le zombie et par définition violent et dénué de parole"""
 
@@ -27,6 +27,7 @@ class zombie(zombieClass):
         discours = ['vous attaque', 'crie', 'vous cours dessus', 'hurle']
         print("Un zombie " + " " + discours[random.randint(0, 3)])
         input()
+
 
     def parler(self, joueur):
         """ Un zombie ne peut pas parler donc lorsque le joueur voudra lancer un dialogue avec celui ci

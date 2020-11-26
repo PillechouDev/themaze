@@ -13,6 +13,7 @@ class Joueur:
         self._sac = []  # On commence avec un sac vide
         self._argent = 500 #Ajout de l'argent
         self.nom = "" #Ajout d'un nom pour un peu plus d'interaction  et d'immersion
+        self.degat = 5 #Ajout d'une caractéristique d'attaque du joueur pour les combats.
         self.setEnergie(energieInitiale)
         #Todo : Ajout atout list
         #Todo : merthode addAtout
