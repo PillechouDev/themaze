@@ -1,4 +1,5 @@
 from personnes.zombie.zombieClass import zombieClass
+import random
 
 class Dog(zombieClass):
     """ Cette classe représente un zombie chien.
@@ -6,49 +7,61 @@ class Dog(zombieClass):
 
     def __init__(self):
         """ Constructeur.
-        - _vitesse : on ne change que la vitesse du chien
+        - _agilite : on ne change que l'agilite du chien
+        - _nourri : si le chien mange de la viande, il arrête de nous attaquer
+
         """
         super().__init__()
-        self._vitesse = 2
+        self._chanceEsquive = 5
+        self._nourri = False
 
     def description(self):
         """ Renvoie la description du chien zombie."""
-        return "Un chien zombie vous regarde alléché"
+        if self._mort == True:
+            return "cadavre de chien zombifié"
+        elif self._nourri == True:
+            return "le chien zombie vous regarde joyeux"
+        else:
+            return "Un chien zombie vous regarde alléché"
 
     def rencontrer(self, joueur):
         """ Affiche un message de salutation au joueur.
         """
-        #Je pense qu'il manque des interraction (Elif des différenters situtation)
-        discours = ['vous attaque', 'crie', 'vous cours dessus', 'hurle']
-        print("Un chien zombie " + " " + discours[random.randint(0,3)])
-        input()
+        if self._mort == True:
+            return "rien ne se passe"
+        if self._nourri == True:
+            print("Le chien vous ramène un os de zombie")
+            print("Vous le lancez au loin")
+            print("le chien vous le ramène en aboyant")
+            return "Vous le caressez"
+        else:
+            discours = ['vous attaque', 'crie', 'vous cours dessus', 'hurle']
+            print("Un chien zombie " + " " + discours[random.randint(0,3)])
+            a = input()
+            """Méthode secrète permettant de ne pas avoir a affronter le chien"""
+            if a== "caresser":
+                """caresser un chien zombie ne semble pas être une bonne idée... Sauf si on possède de la chair putréfiée"""
+                sac = joueur.getSac()
+                if (len(sac)) == 0:
+                    if "Chair putréfiée" in sac:
+                        print("Le chien vous mord la main")
+
+                    else:
+                        for obj in sac:
+                            if obj == "Un morceau de chair de zombie":
+                                print("Le chien zombie semble être attiré par la chair putréfiée dans votre sac")
+                                print("Vous décidez de lui donner")
+                                print("Le chien se laisse caresser tandis qu'il mange la chair de zombie")
+                                print("Le chien vous laisse partir !")
+
 
     def parler(self, joueur):
         """ Un zombie ne peut pas parler donc lorsque le joueur voudra lancer un dialogue avec celui ci
         un message d'erreur lui sera retourné"""
-        print("Le chien zombie ne semble pas vous écouter")
+        if self._mort == True :
+            print("Parler à un chien est déjà quelque chose d'incensé. Alors à un chien zombie mort")
+        if self._nourri == True:
+            print("Le chien ne vous comprend pas... Logique pour un animal")
+        else:
+            print("Le chien zombie ne semble pas vous écouter")
 
-
-    def caresser(self, joueur):
-        """caresser un chien zombie ne semble pas être une bonne idée... Sauf si on possède de la chair putréfiée"""
-        sac = joueur.getSac()
-        if (len(sac)) == 0:
-            if "Chair putréfiée" in sac:
-                print("Le chien vous mord la main")
-
-            else:
-                for obj in sac:
-                    if obj == "Un morceau de chair de zombie":
-                        print("Le chien zombie semble être attiré par la chair putréfiée dans votre sac")
-                        print("Vous décidez de lui donner")
-                        print("Le chien se laisse caresser tandis qu'il mange la chair de zombie")
-                        print("Le chien vous laisse partir !")
-
-
-
-
-    # def subir(self, joueur):
-    """
-    TODO: Faire une méthode sur le joueur qui permet au joueur d'attaquer un zombie
-    """
-        # self._vie = """

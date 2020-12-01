@@ -17,12 +17,12 @@ class zombieClass(Personnage):
         - vie: les points de vie du zombie
         - dégat: les dégats que le zombie inflige
         - vitesse : vitesse du zombie que l'on compare à celle du joueur pour savoir qui attaque en premier
-        - agilité: plus l'agilité est faible plus le zombie a de chance d'esquiver la balle (voir la méthode esquive)
+        - chanceEsquive: plus la chance d'esquiver est faible plus le zombie a de chance d'esquiver la balle
         """
         self._vie = 10
         self._degat = 1
-        self._vitesse = 1
-        self._agilite = 10
+        self._chanceEsquive = 10
+        self._mort = False
 
     def rencontrer(self, joueur):
         """ Cette méthode est appelée dès que le joueur arrive sur la même case que la personne."""
@@ -45,33 +45,33 @@ class zombieClass(Personnage):
         self._vie -= joueur.degat
 
 
-    # def subir(self, joueur):
-    """
-    TODO: Faire une méthode sur le joueur qui permet au joueur d'attaquer un zombie
-    """
-    # self._vie = """
+
 
     def combattre(self,joueur):
-        print("Vous tentez d'attaquer le zombie")
-        """lorsque le joueur attaque, le zombie a une chance d'esquiver la balle
-        ici, on considère qu'il a une chance sur 10 d'esquiver la balle"""
-        chance = random.randint(1, self._agilite)
-        if chance == 1:
-            # le zombie esquive la balle
-            print("Le zombie esquive la balle et vous attaque")
-            joueur.perdreEnergie(self._degat)
-        else:
-            # le zombie se prend la balle
-            print("le zombie se prend la balle")
-            self._perdrevie(joueur)
-            if self._vie == 0:
-                print("Vous avez tué le zombie")
+        if self._mort == False:
+            print("Vous tentez d'attaquer le zombie")
+            """lorsque le joueur attaque, le zombie a une chance d'esquiver la balle
+            ici, on considère qu'il a une chance sur 10 d'esquiver la balle"""
+            chance = random.randint(1, self._chanceEsquive)
+            if chance == 1:
+                # le zombie esquive la balle
+                print("Le zombie esquive la balle et vous attaque")
+                joueur.perdreEnergie(self._degat)
             else:
-                """on conidère qu'un zombie a une chance sur deux d'attaquer après s'être prit une balle"""
-                etourdissement = random.randint(1,2)
-                if etourdissement == 1:
-                    print("Le zombie est étourdit, il ne vous attaque pas")
+                # le zombie se prend la balle
+                print("le zombie se prend la balle")
+                self._perdrevie(joueur)
+                if self._vie == 0:
+                    print("Vous avez tué le zombie")
+                    self._mort = True
                 else:
-                    degat = self._degat
-                    joueur.perdreEnergie(degat)
-                    print("Le zombie vous attaque, il vous enlève votre vie")
+                    """on conidère qu'un zombie a une chance sur deux d'attaquer après s'être prit une balle"""
+                    etourdissement = random.randint(1,2)
+                    if etourdissement == 1:
+                        print("Le zombie est étourdit, il ne vous attaque pas")
+                    else:
+                        degat = self._degat
+                        joueur.perdreEnergie(degat)
+                        print("Le zombie vous attaque, il vous enlève votre vie")
+        else:
+            print("A quoi bon ? Le zombie est déjà mort...")

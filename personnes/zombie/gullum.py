@@ -1,50 +1,49 @@
-from personnes.zombie.zombieClass import zombieClass
+"""
+CLASSE MERE DES ZOMBIE
 
-class Gollum(zombieClass):
-    """ Cette classe représente un gollum.
-    Les gollums sont des zombies plus agiles qui lachent du poison"""
+"""
 
+import random
+from themaze.personnes.zombie.zombieClass import zombieClass
+
+
+class Gullum(zombieClass):
+    """ Cette classe représente un gullum. Le gullum est un zombie infligeant plus de dégat mais ayant moins de vie. """
     def __init__(self):
-        """ Constructeur. Paramètres :
-        - vitesse : on ne change que la vitesse du chien
-        """
         super().__init__()
-        self._vie = 10
-        self._vitesse = 4
-        self._agilite = 2
+        self._vie = 5
+        self._degat = 3
+        self._chanceEsquive = 7
+        self._mort = False
+
 
     def description(self):
-        """ Renvoie la description du chien zombie."""
-        return "Un gollum semble vouloir vous mordre"
+        """ Renvoie la description du gullum."""
+        if self._mort == False:
+            return "Un gullum vous observe"
+        else:
+            return "Un cadavre de gullum"
 
     def rencontrer(self, joueur):
         """ Affiche un message de salutation au joueur.
         """
-        discours = ['vous attaque', 'crie', 'vous cours dessus', 'hurle']
-        print("Un gollum " + " " + discours[random.randint(0,3)])
-        input()
+        if self._mort == False:
+            discours = ['vous attaque', 'crie', 'vous cours dessus', 'hurle']
+            print("Un gullum " + " " + discours[random.randint(0, 3)])
+            input()
+        else:
+            return "Rien ne se passe"
+
 
     def parler(self, joueur):
         """ Un zombie ne peut pas parler donc lorsque le joueur voudra lancer un dialogue avec celui ci
         un message d'erreur lui sera retourné"""
-        print("Le gollum ne semble pas comprendre ce que vous dites")
-
-    #def poison()
-
-
-    def esquive(self, joueur):
-        """lorsque le joueur attaque, le zombie a une chance d'esquiver la balle
-        pour le zombie normal, on considère qu'il a une chance sur deux d'esquiver la balle"""
-        chance = random.randint(1,self._agilite)
-        if chance == 1:
-        #le zombie esquive la balle
-            print("le zombie esquive la balle")
+        if self._mort == False:
+            print("Le gullum ne semble pas vous écouter")
         else:
-        #le zombie se prend la balle
-            print("le zombie se prend la balle")
+            print("Vous tentez de parler à un cadavre... Il est temps que vous sortiez de ce labyrinthe")
 
-    # def subir(self, joueur):
-    """
-    TODO: Faire une méthode sur le joueur qui permet au joueur d'attaquer un zombie
-    """
-        # self._vie = """
+
+
+
+
