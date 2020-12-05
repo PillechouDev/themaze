@@ -83,7 +83,10 @@ class Labyrinthe:
         case = random.choice(self.cases)
         case.ajouterPersonnage(personne)
 
-
+    def deposerBrutusAleatoirement(self, brutus):
+        case = random.choice(self.cases)
+        case.ajouterBrutus(brutus)
+        brutus.setCaseCourante(case)
 
 
 

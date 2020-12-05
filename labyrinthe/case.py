@@ -50,6 +50,7 @@ class Case:
     def ajouterBrutus(self,brutus):
         """ Stock la référence du joueur. A utiliser lorsque le joueur arrive sur la case. """
         self._brutus = brutus
+        self.__decouvert = True
 
     def supprimerBrutus(self):
         """ Retire la référence du joueur, à utiliser lorsque le joueur quitte la case."""
@@ -81,6 +82,8 @@ class Case:
                 print(" P ", end="") # Il n'y a que des personnages
             elif len(self._objets) > 0:
                 print(" . ", end="") # Il n'y a que des objets
+            elif self._brutus:
+                print(" B ", end="")
             else:
                 print("   ", end="") # Il n'y a rien
         else:

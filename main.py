@@ -1,3 +1,4 @@
+import os
 from config import Config
 from labyrinthe.labyrinthe import Labyrinthe
 from joueur import Joueur
@@ -5,15 +6,12 @@ from objets.potion import Potion
 from personnes.Dempsey import Dempsey
 import random
 
-
-
-import os
-
 from personnes.Nikolai import Nikolai
 from personnes.Richtofen import Richtofen
+from personnes.Takeo import Takeo
 
-from themaze.personnes.zombie.brutus import Brutus
-from themaze.personnes.zombie.zombie import Zombie
+from personnes.zombie.brutus import Brutus
+from personnes.zombie.zombie import Zombie
 
 
 def cls():
@@ -54,7 +52,7 @@ l = Labyrinthe(Config.getInstance().getWidth(),Config.getInstance().getHeight())
 joueur = Joueur("X",100)
 l.deposerJoueurAleatoirement(joueur)
 l.deposerPersonneAleatoirement(Nikolai.getInstance())
-#l.deposerPersonneAleatoirement(Takeo.getInstance())
+l.deposerPersonneAleatoirement(Takeo.getInstance())
 l.deposerPersonneAleatoirement(Dempsey.getInstance())
 l.deposerPersonneAleatoirement(Richtofen.getInstance())
 
@@ -66,16 +64,14 @@ for i in range(70):
 
 
 # Ajouter des zombies un peu partout
-
-
 brutus = Brutus()
-l.deposerPersonneAleatoirement(brutus)
+l.deposerBrutusAleatoirement(brutus)
 
 
 
 
 while True: #todo : endgame ?
-    cls()  # Effacer la console
+    #cls()  # Effacer la console
     joueur.printEnergie()
     print()
     l.afficher()
@@ -86,6 +82,7 @@ while True: #todo : endgame ?
     if action == "n":
         try:
             joueur.avancerNord()
+            brutus.avancerNord()
 
 
         except:
@@ -96,7 +93,6 @@ while True: #todo : endgame ?
         try:
             joueur.avancerSud()
             brutus.avancerSud()
-
         except:
             print("Ouch, ce mur fait mal...")
             input()
@@ -104,6 +100,7 @@ while True: #todo : endgame ?
         try:
             joueur.avancerEst()
             brutus.avancerEst()
+
 
         except:
             print("Ouch, ce mur fait mal...")

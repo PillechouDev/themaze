@@ -1,5 +1,5 @@
 import random
-from themaze.personnes.zombie.zombieClass import zombieClass
+from personnes.zombie.zombieClass import zombieClass
 from labyrinthe.labyrinthe import Case
 
 
@@ -25,26 +25,24 @@ class Brutus(zombieClass):
         caseCourante = self.__caseCourante
         if caseCourante.estOuvertNord():
             self.setCaseCourante(caseCourante.getCaseNord())
-
-
+            print("déplacé nord")
     def avancerSud(self):
-        print("test")
         caseCourante = self.__caseCourante
         if caseCourante.estOuvertSud():
             self.setCaseCourante(caseCourante.getCaseSud())
-
+            print("déplacé sud")
 
     def avancerEst(self):
         caseCourante = self.__caseCourante
         if caseCourante.estOuvertEst():
             self.setCaseCourante(caseCourante.getCaseEst())
-
+            print("déplacé Est")
 
     def avancerOuest(self):
         caseCourante = self.__caseCourante
         if caseCourante.estOuvertOuest():
             self.setCaseCourante(caseCourante.getCaseOuest())
-
+            print("déplacé Ouest")
 
     def description(self):
         """ Renvoie la description du brutus."""

@@ -5,7 +5,7 @@ CLASSE MERE DES ZOMBIE
 from personnage import Personnage
 import random
 
-from themaze.exceptions import AbstractMethodCallException
+from exceptions import AbstractMethodCallException
 
 
 class zombieClass(Personnage):
@@ -43,9 +43,6 @@ class zombieClass(Personnage):
 
     def _perdrevie(self, joueur):
         self._vie -= joueur.degat
-
-
-
 
     def combattre(self,joueur):
         if self._mort == False:
