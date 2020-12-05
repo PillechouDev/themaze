@@ -29,6 +29,8 @@ class Case:
         # Le joueur s'il est sur la case, None sinon
         self._joueur = None
 
+        self._brutus = None
+
         # La liste des personnages sur la case
         self._personnages = []
         # La liste des objets sur la case
@@ -43,6 +45,17 @@ class Case:
     def supprimerJoueur(self):
         """ Retire la référence du joueur, à utiliser lorsque le joueur quitte la case."""
         self._joueur = None
+
+
+    def ajouterBrutus(self,brutus):
+        """ Stock la référence du joueur. A utiliser lorsque le joueur arrive sur la case. """
+        self._brutus = brutus
+
+    def supprimerBrutus(self):
+        """ Retire la référence du joueur, à utiliser lorsque le joueur quitte la case."""
+        self._brutus = None
+
+
 
     def afficherLigne1(self):
         """ Affiche la première ligne (le haut) de la case. En fonction de la présence de mur en haut, on n'affiche pas la même chose. """
@@ -125,6 +138,13 @@ class Case:
         :return: rien
         """
         self._personnages.append(personnage)
+
+    def supprimerPersonnage(self, personnage):
+        """ supprime le personnage sur la case
+        :param personnage: Un personnage
+        :return: rien
+        """
+        self._personnages.remove(personnage)
 
 
     def getObjets(self):

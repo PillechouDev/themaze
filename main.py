@@ -6,11 +6,13 @@ from personnes.Dempsey import Dempsey
 import random
 
 
+
 import os
 
 from personnes.Nikolai import Nikolai
 from personnes.Richtofen import Richtofen
 
+from themaze.personnes.zombie.brutus import Brutus
 from themaze.personnes.zombie.zombie import Zombie
 
 
@@ -64,9 +66,10 @@ for i in range(70):
 
 
 # Ajouter des zombies un peu partout
-for i in range(15):
-    zombie = Zombie()
-    l.deposerPersonneAleatoirement(zombie)
+
+
+brutus = Brutus()
+l.deposerPersonneAleatoirement(brutus)
 
 
 
@@ -83,24 +86,33 @@ while True: #todo : endgame ?
     if action == "n":
         try:
             joueur.avancerNord()
+
+
         except:
             print("Ouch, ce mur fait mal...")
             input()
+
     elif action == "s":
         try:
             joueur.avancerSud()
+            brutus.avancerSud()
+
         except:
             print("Ouch, ce mur fait mal...")
             input()
     elif action == "e":
         try:
             joueur.avancerEst()
+            brutus.avancerEst()
+
         except:
             print("Ouch, ce mur fait mal...")
             input()
     elif action == "o":
         try:
             joueur.avancerOuest()
+            brutus.avancerOuest()
+
         except:
             print("Ouch, ce mur fait mal...")
             input()
