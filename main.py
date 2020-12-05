@@ -14,12 +14,133 @@ from personnes.zombie.brutus import Brutus
 from personnes.zombie.zombie import Zombie
 
 
+def avancerNord():
+    try:
+        joueur.avancerNord()
+        brutus.avancerNord()
+
+    except:
+        print("Ouch, ce mur fait mal...")
+        input()
+
+def avancerSud():
+    try:
+        joueur.avancerSud()
+        brutus.avancerSud()
+    except:
+        print("Ouch, ce mur fait mal...")
+        input()
+
+def avancerEst():
+    try:
+        joueur.avancerEst()
+        brutus.avancerEst()
+
+
+    except:
+        print("Ouch, ce mur fait mal...")
+        input()
+
+def avancerOuest():
+    try:
+        joueur.avancerOuest()
+        brutus.avancerOuest()
+
+    except:
+        print("Ouch, ce mur fait mal...")
+        input()
+
+
+def regarder():
+    case = joueur.getCaseCourante()
+    personnages = case.getPersonnages()
+    objets = case.getObjets()
+    if (len(personnages) == 0 and len(objets) == 0):
+        print(random.choice([
+            "Je vois une salle poussièreuse, sans rien de plus que quelques cailloux.",
+            "Des toiles d'araignées un peu partout.",
+            "C'ets déseperement vide..."
+        ]))
+    else:
+        print("Je vois :")
+        for objet in objets:
+            print(" - " + objet.description())
+        for personnage in personnages:
+            print(" - " + personnage.description())
+    input()
+
+def ramasser():
+    case = joueur.getCaseCourante()
+    if len(case.getObjets()) == 0:
+        print("Mais... il n'y a rien à ramasser !")
+    else:
+        print("J'ai ramassé :")
+        for objet in case.getObjets():
+            objet.ramasser(joueur)
+            print(" - " + objet.description())
+        case.getObjets().clear()  # On est obliger de tout supprimer après avoir ramassé, car on ne peut pas modifier la liste sur laquelle on itere...
+    input()
+
+def sac():
+    sac = joueur.getSac()
+    if (len(sac)) == 0:
+        print("Le sac est vide")
+        input()
+    else:
+        print("Le sac contient: ")
+        index = 0
+        for obj in sac:
+            print(str(index + 1) + " - " + obj.description())
+            index += 1
+        choice = input("Pour utiliser un objet, taper son numéro, ou entrée pour ne rien faire. ")
+        try:
+            num = int(choice)
+            obj = sac[num - 1]
+            sac.remove(obj)
+            obj.utiliser(joueur)
+        except:
+            pass  # En cas d'erreur, c'est que l'entrée est invalide, on ne fait rien
+
+def parler():
+    personnages = joueur.getCaseCourante().getPersonnages()
+    if len(personnages) == 0:
+        print("Allo ? allo allo allo allo allo répète l'écho")
+    else:
+        for personnage in personnages:
+            personnage.parler(joueur)
+    input()
+
+def combattre():
+    personnages = joueur.getCaseCourante().getPersonnages()
+    if len(personnages) == 0:
+        print("Vous essayez de combattre votre ombre... L'ombre a gagné")
+    else:
+        for personnage in personnages:
+            personnage.combattre(joueur)
+    input()
+
+def execute(param):
+    return param()
+
+
+
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
+
+# options de choix du joueur
+choixJoueur = {
+    "n" : avancerNord,
+    "s" : avancerSud,
+    "e" : avancerEst,
+    "o" : avancerOuest,
+    "regarder" : regarder,
+    "ramasser" : ramasser,
+    "sac" : sac,
+    "parler" : parler,
+    "combattre" : combattre
+}
 # now, to clear the screen
-
-
 
 #todo : Petit menu principale à faire
 cls()
@@ -69,7 +190,6 @@ l.deposerBrutusAleatoirement(brutus)
 
 
 
-
 while True: #todo : endgame ?
     #cls()  # Effacer la console
     joueur.printEnergie()
@@ -79,111 +199,8 @@ while True: #todo : endgame ?
 
     # TODO: oulàlà que c'est mocche, utiliser un design pattern   !
     action = input("Que dois-je faire ? ")
-    if action == "n":
-        try:
-            joueur.avancerNord()
-            brutus.avancerNord()
-
-
-        except:
-            print("Ouch, ce mur fait mal...")
-            input()
-
-    elif action == "s":
-        try:
-            joueur.avancerSud()
-            brutus.avancerSud()
-        except:
-            print("Ouch, ce mur fait mal...")
-            input()
-    elif action == "e":
-        try:
-            joueur.avancerEst()
-            brutus.avancerEst()
-
-
-        except:
-            print("Ouch, ce mur fait mal...")
-            input()
-    elif action == "o":
-        try:
-            joueur.avancerOuest()
-            brutus.avancerOuest()
-
-        except:
-            print("Ouch, ce mur fait mal...")
-            input()
-    elif action == "regarder":
-        case = joueur.getCaseCourante()
-        personnages = case.getPersonnages()
-        objets = case.getObjets()
-        if(len(personnages) == 0 and len(objets) == 0):
-            print(random.choice([
-                "Je vois une salle poussièreuse, sans rien de plus que quelques cailloux.",
-                "Des toiles d'araignées un peu partout.",
-                "C'ets déseperement vide..."
-            ]))
-        else:
-            print("Je vois :")
-            for objet in objets:
-                print(" - " + objet.description())
-            for personnage in personnages:
-                print(" - " + personnage.description())
-        input()
-
-    elif action == "ramasser":
-        case = joueur.getCaseCourante()
-        if len(case.getObjets()) == 0:
-            print("Mais... il n'y a rien à ramasser !")
-        else:
-            print("J'ai ramassé :")
-            for objet in case.getObjets():
-                objet.ramasser(joueur)
-                print(" - " + objet.description())
-                if(objet == tresor):
-                    print("Vous avez trouvé le trésor légendaire et terminé votre quête !!")
-                    tresorTrouve = True
-            case.getObjets().clear() # On est obliger de tout supprimer après avoir ramassé, car on ne peut pas modifier la liste sur laquelle on itere...
-        input()
-
-    elif action == "sac":
-        sac = joueur.getSac()
-        if(len(sac)) == 0:
-            print("Le sac est vide")
-            input()
-        else:
-            print("Le sac contient: ")
-            index = 0
-            for obj in sac:
-                print(str(index+1)+" - "+obj.description())
-                index += 1
-            choice = input("Pour utiliser un objet, taper son numéro, ou entrée pour ne rien faire. ")
-            try:
-                num = int(choice)
-                obj = sac[num-1]
-                sac.remove(obj)
-                obj.utiliser(joueur)
-            except:
-                pass # En cas d'erreur, c'est que l'entrée est invalide, on ne fait rien
-
-    elif action == "parler":
-        personnages = joueur.getCaseCourante().getPersonnages()
-        if len(personnages) == 0:
-            print("Allo ? allo allo allo allo allo répète l'écho")
-        else:
-            for personnage in personnages:
-                personnage.parler(joueur)
-        input()
-
-    elif action == "combattre":
-        personnages = joueur.getCaseCourante().getPersonnages()
-        if len(personnages) == 0:
-            print("Vous essayez de combattre votre ombre... L'ombre a gagné")
-        else:
-            for personnage in personnages:
-                personnage.combattre(joueur)
-        input()
-
+    if action in choixJoueur:
+        execute(choixJoueur[action])
 
     else:
         print("Moi pas comprendre...")
