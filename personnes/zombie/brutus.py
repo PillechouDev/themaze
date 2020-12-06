@@ -4,9 +4,12 @@ from labyrinthe.labyrinthe import Case
 
 from themaze.joueur import Joueur
 
+"""
+Classe faite par : Mathieu et Romain 
+"""
 
 class Brutus(zombieClass):
-    """ Cette classe représente un gullum. Le gullum est un zombie infligeant plus de dégat mais ayant moins de vie. """
+    """ Cette classe représente un Brutus. Le brutus est un zombie se déplaçant seul. """
     def __init__(self):
         super().__init__()
         self.__caseCourante = Case()
