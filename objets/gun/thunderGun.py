@@ -1,5 +1,6 @@
 from objets.gun.gun import Gun
 
+    """ Class ThunderGun représente une arme que l'on peut ramasser et que le joueur peut transporter et utiliser à partir de son sac """
 
 class ThunderGun(Gun):
 

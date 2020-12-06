@@ -1,6 +1,10 @@
 from personnes.zombie.zombieClass import zombieClass
 import random
 
+"""
+Classe faite par : Romain 
+"""
+
 class Dog(zombieClass):
     """ Cette classe représente un zombie chien.
     Les zombies chiens sont beaucoup plus rapide qu'un zombie classique"""

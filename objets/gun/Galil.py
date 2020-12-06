@@ -6,7 +6,7 @@ class Galil(Gun):
     def __init(self):
         """ ici on défni les dégats et les munitions de base """
         self.damage = 20
-        self.munition = 40
+        self._munition = 40
 
     def description(self):
         """ Renvoie une description de l'objet, pour pouvoir l'afficher. """

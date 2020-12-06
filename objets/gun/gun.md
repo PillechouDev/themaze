@@ -1,6 +1,6 @@
-#Les armes 
+#Les armes
 
-1.Création d'une classe mère "gun" : 
+1.Création d'une classe mère "gun" :
 > - Les armes seront à une place statique et alétoire dans le labyrinthe.
 > - peuvent êtres achetés ou drop par un evenement par example(lier TODO : joueur.py)
 >- Fonction de give l'arme
@@ -12,4 +12,3 @@
 
 
 Si on a le temps => PAP (Pack à punch)
-

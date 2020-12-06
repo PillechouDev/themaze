@@ -1,11 +1,9 @@
-"""
-CLASSE MERE DES ZOMBIE
-
-"""
-
 import random
 from personnes.zombie.zombieClass import zombieClass
 
+"""
+Classe faite par : Romain 
+"""
 
 class Zombie(zombieClass):
     """ Cette classe représente un zombie classique. Le zombie attaque le joueur. Les intéractions sociales entre le joueur et le zombie

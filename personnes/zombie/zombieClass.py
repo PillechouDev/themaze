@@ -7,6 +7,8 @@ import random
 
 from exceptions import AbstractMethodCallException
 
+from themaze.objets.Chair import Chair
+
 
 class zombieClass(Personnage):
 
@@ -23,6 +25,7 @@ class zombieClass(Personnage):
         self._degat = 1
         self._chanceEsquive = 10
         self._mort = False
+        self._drop = False
 
     def rencontrer(self, joueur):
         """ Cette méthode est appelée dès que le joueur arrive sur la même case que la personne."""
@@ -72,3 +75,11 @@ class zombieClass(Personnage):
                         print("Le zombie vous attaque, il vous enlève votre vie")
         else:
             print("A quoi bon ? Le zombie est déjà mort...")
+
+    def ramasser(self, joueur):
+        chair = Chair()
+        if self._mort == True and self._drop == False:
+            joueur.mettreObjetDansLeSac(chair)
+            self._drop = True
+
+

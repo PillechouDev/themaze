@@ -1,11 +1,9 @@
-"""
-CLASSE MERE DES ZOMBIE
-
-"""
-
 import random
 from personnes.zombie.zombieClass import zombieClass
 
+"""
+Classe faite par : Romain 
+"""
 
 class Gullum(zombieClass):
     """ Cette classe représente un gullum. Le gullum est un zombie infligeant plus de dégat mais ayant moins de vie. """
