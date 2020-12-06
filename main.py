@@ -240,6 +240,7 @@ doubletap = DoubleTap()
 electricité = Electricite()
 juggernog = juggerNog()
 """
+
 for i in range(2):
     boite = Boite()
     l.deposerObjetAleatoirement(boite)
@@ -264,6 +265,7 @@ l.deposerObjetAleatoirement(quickRevive)
 while Maxis.getInstance().getEndgame()==False:
     #cls()  # Effacer la console
     joueur.printEnergie()
+    print(joueur.getArgent())
     print()
     l.afficher()
     print()

@@ -139,3 +139,6 @@ class Joueur:
         :return: Nom du joueur
         """
         return self.nom
+
+    def getArgent(self):
+        return self._argent
