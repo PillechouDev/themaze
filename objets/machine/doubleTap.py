@@ -13,12 +13,13 @@ class DoubleTap(Machine):
     def description(self):
         return "Une boisson spéciale offrant des capacités supplémentaires (double tap) "
     def ramasser(self, joueur):
-        electricite = Electricite()
-        if electricite.getEtat() == True or joueur.getArgent() >= self.prix:  # Dans le cadre où la classe/méthode éléctricité existe.
-            if joueur.removeArgent(self.prix):
-                doubleTap = DoubleTap()
-                joueur.mettreObjetDansLeSac(doubleTap)
-            else:
-                return "Vous n'avez pas assez d'argent."
+        #electricite = Electricite()
+        print(joueur.getArgent())
+        if joueur.getArgent() >= self.prix: # Dans le cadre où la classe/méthode éléctricité existe.
+            print("yes")
+            joueur.removeArgent(self.prix)
+            doubleTap = DoubleTap()
+            joueur.mettreObjetDansLeSac(doubleTap)
+
         else:
-            return "Le courant n'est pas activé."
+            return "Vous n'avez pas assez d'argent"

@@ -105,7 +105,7 @@ class Joueur:
         :param nombre: nombre d'argent à retirer
         :return: True si l'opération est réussie sinon un False avec un message
         """
-        if (nombre >= self._argent):
+        if (nombre <= self._argent):
             self._argent -= nombre
             return True
         else:

@@ -246,12 +246,13 @@ for i in range(2):
     l.deposerObjetAleatoirement(boite)
 
 #Déposer les atouts
-for i in range(10):
-    doubleTap = DoubleTap()
-    l.deposerObjetAleatoirement(doubleTap)
 
-juggerNog = JuggerNog()
-l.deposerObjetAleatoirement(juggerNog)
+doubleTap = DoubleTap()
+l.deposerObjetAleatoirement(doubleTap)
+
+for i in range(10):
+    juggerNog = JuggerNog()
+    l.deposerObjetAleatoirement(juggerNog)
 
 muleKick = MuleKick()
 l.deposerObjetAleatoirement(muleKick)

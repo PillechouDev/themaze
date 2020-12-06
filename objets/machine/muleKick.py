@@ -15,12 +15,12 @@ class MuleKick(Machine):
         return "Une boisson spéciale offrant des capacités supplémentaires (mule kick) "
 
     def ramasser(self, joueur):
-        electricite = Electricite()
+        #electricite = Electricite()
+        print(joueur.getArgent())
+        if joueur.getArgent() >= self.prix:  # Dans le cadre où la classe/méthode éléctricité existe.
+            print("yes")
+            joueur.removeArgent(self.prix)
+            joueur.getSac.value += 15 #en admettant que le sac a une taille par défaut, voir dans joueur
 
-        if electricite.getEtat() == True or joueur.getArgent() >= self.prix:  # Dans le cadre où la classe/méthode éléctricité existe.
-            if joueur.removeArgent(self.prix):
-                joueur.getSac.value += 15 #en admettant que le sac a une taille par défaut, voir dans joueur
-            else:
-                return "Désolé vous n'avez pas assez d'argent."
         else:
-            return "Le courant n'est pas activé."
+            return "Vous n'avez pas assez d'argent"

@@ -14,13 +14,13 @@ class JuggerNog(Machine):
         return "Une boisson spéciale offrant des capacités supplémentaires (jugger nog) "
 
     def ramasser(self, joueur):
-        electricite = Electricite()
-
-        if electricite.getEtat() == True or joueur.getArgent() >= self.prix:
+        #electricite = Electricite()
+        print(joueur.getArgent())
+        if joueur.getArgent() >= self.prix:
             # Dans le cadre où la classe/méthode éléctricité existe.
-            if joueur.removeArgent(self.prix):
-                joueur.setEnergie(joueur.getEnergie()*2)
-            else:
-                return "Désolé, vous n'avez pas assez d'argent."
+            print("yes")
+            joueur.removeArgent(self.prix)
+            joueur.setEnergie(joueur.getEnergie()+25)
+
         else:
-            return "Le courant n'est pas activé."
+            return "Vous n'avez pas assez d'argent"
