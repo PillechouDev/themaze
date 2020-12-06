@@ -1,12 +1,12 @@
-from gun import Gun
+from objets.gun.gun import Gun
 
 
-class ThunderGun (Gun):
+class ThunderGun(Gun):
 
     def __init(self):
-    """ ici on défni les dégats et les munitions de base """
-        self.damage = 100
-        self.munition = 5
+        """ ici on défni les dégats et les munitions de base """
+        self._damage = 100
+        self._munition = 5
 
     def description(self):
         """ Renvoie une description de l'objet, pour pouvoir l'afficher. """

@@ -1,6 +1,7 @@
-from gun import Gun
+from objets.gun.gun import Gun
 
-class Galil (Gun):
+
+class Galil(Gun):
 
     def __init(self):
         """ ici on défni les dégats et les munitions de base """

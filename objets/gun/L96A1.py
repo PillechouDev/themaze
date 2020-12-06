@@ -1,10 +1,10 @@
-from gun import Gun
+from objets.gun.gun import Gun
 
 
 class L96A1(Gun):
 
     def __init(self):
-    """ ici on défni les dégats et les munitions de base """
+        """ ici on défni les dégats et les munitions de base """
         self._damage = 50
         self._munition = 10
 

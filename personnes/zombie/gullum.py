@@ -4,7 +4,7 @@ CLASSE MERE DES ZOMBIE
 """
 
 import random
-from themaze.personnes.zombie.zombieClass import zombieClass
+from personnes.zombie.zombieClass import zombieClass
 
 
 class Gullum(zombieClass):

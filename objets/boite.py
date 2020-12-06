@@ -4,7 +4,7 @@ from exceptions import AbstractMethodCallException
 from objets.gun.M14 import M14
 from objets.gun.Galil import Galil
 from objets.gun.L96A1 import L96A1
-from objets.gun.ThunderGun import ThunderGun
+from objets.gun.thunderGun import ThunderGun
 
 class Boite:
 
