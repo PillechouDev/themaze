@@ -54,26 +54,30 @@ class Takeo(Personnage):
                 self.parler(joueur)  # Relance de la methode
         else:
             # si le sac n'est pas vide, on fait une boucle pour savoir si le Katana est déjà présent
+            obtenu = False
             for obj in sac:
-                if obj == Katana.getInstance() and self.__argent is False:
-                    print(
-                        "Même un Samourai peut être dans le besoin, mets ta fierté de côté et prends ces 500 $")
-                    joueur.addArgent(500)
-                    self.__argent = True
-                elif obj == Katana.getInstance() and self.__argent is True:
-                    print(
-                        "Je t'ai donné tout ce que j'avais, apprends à te débrouiller seul !")
+                if obj == Katana.getInstance():
+                    obtenu = True
+
+
+            if obtenu == True and self.__argent is False:
+                print("Même un Samourai peut être dans le besoin, mets ta fierté de côté et prends ces 500 $")
+                joueur.addArgent(500)
+                self.__argent = True
+
+            elif obtenu == True and self.__argent is True:
+                print("Je t'ai donné tout ce que j'avais, apprends à te débrouiller seul !")
+
+            else:
+                print("Takeo : Tu as fait breuve de beaucoup de courage, Voici mon Katana. Utilise le pour découper un maximum de zombies")
+                entree = input("#> Voulez vous prendre le Katana ? [o/n]")
+                if entree in ['o', 'O', 'OUI', 'oui']:
+                    # Mise en place de l'instance dans le sac
+                    joueur.mettreObjetDansLeSac(Katana.getInstance())
+                    print("vous avez à present un Katana dans votre sac")
+                elif entree in ['n', 'N', 'NON', 'non']:
+                    print("vous avez refusé l'objet")
                 else:
-                    print(
-                        "Takeo : Tu as fait breuve de beaucoup de courage, Voici mon Katana. Utilise le pour découper un maximum de zombies")
-                    entree = input("#> Voulez vous prendre le Katana ? [o/n]")
-                    if entree in ['o', 'O', 'OUI', 'oui']:
-                        # Mise en place de l'instance dans le sac
-                        joueur.mettreObjetDansLeSac(Katana.getInstance())
-                        print(
-                            "vous avez à present un Katana dans votre sac")
-                    elif entree in ['n', 'N', 'NON', 'non']:
-                        print("vous avez refusé l'objet")
-                    else:
-                        print("Je n'ai pas compris camarade ! ")
-                        self.parler(joueur)  # Relance de la methode
+                    print("Je n'ai pas compris camarade ! ")
+                    self.parler(joueur)  # Relance de la methode
+

@@ -40,14 +40,17 @@ class Dempsey (Personnage):
                 print("vous avez refusé l'objet")
         else:
             #si le sac n'est pas vide, on fait une boucle pour savoir si la clé d'invocation est déjà présente
+            obtenu = False
             for obj in sac:
                 if obj == CleInvoc.getInstance():
-                    print("Dégage !! je t'ai deja donné ce que j'avais")
+                    obtenu = True
+            if obtenu == True:
+                print("Dégage !! je t'ai deja donné ce que j'avais")
+            else:
+                print("Dempsey : tiens j'ai trouvé quelque chose qui pourrait etre utile camarade")
+                entree = input("#> Voulez vous prendre l'objet de forme sphérique qu'il vous tend ? [o/n]")
+                if entree in ['o', 'O', 'OUI', 'oui']:
+                    joueur.mettreObjetDansLeSac(CleInvoc.getInstance())
+                    print("vous avez à present une clef spécial dans votre sac")
                 else:
-                    print("Dempsey : tiens j'ai trouvé quelque chose qui pourrait etre utile camarade")
-                    entree = input("#> Voulez vous prendre l'objet de forme sphérique qu'il vous tend ? [o/n]")
-                    if entree in ['o', 'O', 'OUI', 'oui']:
-                        joueur.mettreObjetDansLeSac(CleInvoc.getInstance())
-                        print("vous avez à present une clef spécial dans votre sac")
-                    else:
-                        print("vous avez refusé l'objet")
+                    print("vous avez refusé l'objet")
