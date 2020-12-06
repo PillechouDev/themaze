@@ -12,8 +12,6 @@ from objets.Chair import Chair
 
 class zombieClass(Personnage):
 
-
-
     def __init__(self):
         """ Constructeur. attribut :
         - vie: les points de vie du zombie
@@ -25,18 +23,18 @@ class zombieClass(Personnage):
         self._degat = 1
         self._chanceEsquive = 10
         self._mort = False
-
+        self._nom = "Zombie"
     def rencontrer(self, joueur):
         """ Cette méthode est appelée dès que le joueur arrive sur la même case que la personne."""
-        raise AbstractMethodCallException()  # Méthode abstraite
+        return "Moi manger...."  # Méthode abstraite
 
     def parler(self, joueur):
         """ Cette méthode est appelée lorsque le joueur fait l'action de parler avec la personne."""
-        raise AbstractMethodCallException()  # Méthode abstraite
+        return "Moi manger chair humaine"  # Méthode abstraite
 
     def description(self):
         """ Renvoie une description de la personne, pour pouvoir l'afficher. """
-        raise AbstractMethodCallException()  # Méthode abstraite
+        return "Un zombie"  # Méthode abstraite
 
 
     def attaquer(self, joueur):
@@ -48,24 +46,24 @@ class zombieClass(Personnage):
 
     def combattre(self,joueur):
         while self._mort == False:
-            print("Vous tentez d'attaquer le zombie")
-            """lorsque le joueur attaque, le zombie a une chance d'esquiver la balle
+            print("Vous tentez d'attaquer le " + self._nom)
+            """lorsque le joueur attaque, le " + + self._nom " a une chance d'esquiver la balle
             ici, on considère qu'il a une chance sur 10 d'esquiver la balle"""
             chance = random.randint(1, self._chanceEsquive)
             if chance == 1:
                 # le zombie esquive la balle
-                print("Le zombie esquive la balle et vous attaque")
+                print("Le " + self._nom + " esquive la balle et vous attaque")
                 joueur.setEnergie(joueur.getEnergie()-self._degat)
                 input()
             else:
                 # le zombie se prend la balle
-                print("le zombie se prend la balle")
+                print("le " + self._nom + " se prend la balle")
                 self._perdrevie(joueur)
                 input()
                 if self._vie == 0:
                     drop = random.randint(1,10)
 
-                    print("Vous avez tué le zombie")
+                    print("Vous avez tué le " + self._nom )
                     joueur.addArgent(250)
                     if drop == 1:
                         print("Vous trouvez sur le cadavre un morceau de chair, vous décidez de le garder")
@@ -78,11 +76,11 @@ class zombieClass(Personnage):
                     """on conidère qu'un zombie a une chance sur deux d'attaquer après s'être prit une balle"""
                     etourdissement = random.randint(1,2)
                     if etourdissement == 1:
-                        print("Le zombie est étourdit, il ne vous attaque pas")
+                        print("Le " + self._nom + "est étourdit, il ne vous attaque pas")
                         input()
                     else:
                         joueur.setEnergie(joueur.getEnergie()-self._degat)
-                        print("Le zombie vous attaque, il vous enlève votre vie")
+                        print("Le" + self._nom + " vous attaque, il vous enlève votre vie")
                         input()
 
 

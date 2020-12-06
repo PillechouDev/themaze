@@ -40,6 +40,8 @@ def avancerSud():
     try:
         joueur.avancerSud()
         brutus.avancerAleatoirement()
+
+
     except:
         print("Ouch, ce mur fait mal...")
         input()
@@ -58,6 +60,7 @@ def avancerOuest():
     try:
         joueur.avancerOuest()
         brutus.avancerAleatoirement()
+
 
     except:
         print("Ouch, ce mur fait mal...")
@@ -265,19 +268,25 @@ l.deposerObjetAleatoirement(quickRevive)
 
 while Maxis.getInstance().getEndgame()==False:
     #cls()  # Effacer la console
-    joueur.printEnergie()
-    print(joueur.getArgent())
-    print()
-    l.afficher()
-    print()
-
-    action = input("Que dois-je faire ? ")
-    if action in choixJoueur:
-        execute(choixJoueur[action])
-
+    if joueur.getEnergie() == 0:
+        print("Vous êtes mort en combattant bravement")
+        break
     else:
-        print("Moi pas comprendre...")
-        print("Mon vocabulaire est limité  à n, s, e, o, regarder, ramasser, sac et parler.")
-        input()
+        joueur.printEnergie()
+        joueur.getEnergie()
+        print(joueur.getArgent())
+        print()
+        l.afficher()
+        print()
 
-    joueur.perdreEnergie()
+        action = input("Que dois-je faire ? ")
+        if action in choixJoueur:
+            execute(choixJoueur[action])
+            brutus.contactJoueur(joueur)
+
+        else:
+            print("Moi pas comprendre...")
+            print("Mon vocabulaire est limité  à n, s, e, o, regarder, ramasser, sac et parler.")
+            input()
+
+        joueur.perdreEnergie()

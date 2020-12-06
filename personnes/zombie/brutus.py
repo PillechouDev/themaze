@@ -16,7 +16,7 @@ class Brutus(zombieClass):
         self._degat = 100
         self._chanceEsquive = 7
         self._mort = False
-
+        self.nom = "Brutus"
     def getCaseCourante(self):
         return self.__caseCourante
 
@@ -26,48 +26,44 @@ class Brutus(zombieClass):
         case.ajouterBrutus(self)
 
     def avancerAleatoirement(self):
-        caseCourante = self.__caseCourante
+        if self._mort == False:
+            caseCourante = self.__caseCourante
 
-        deplacement = random.randint(0,3)
-        if deplacement == 0:
-            if caseCourante.estOuvertNord():
-                self.setCaseCourante(caseCourante.getCaseNord())
+            deplacement = random.randint(0,3)
+            if deplacement == 0:
+                if caseCourante.estOuvertNord():
+                    self.setCaseCourante(caseCourante.getCaseNord())
 
-            else:
-                deplacement += 1
+                else:
+                    deplacement += 1
 
-        elif deplacement == 1:
+            elif deplacement == 1:
 
-            if caseCourante.estOuvertSud():
-                self.setCaseCourante(caseCourante.getCaseSud())
-
-
-            else:
-
-                deplacement += 1
-
-        elif deplacement == 2:
-
-            if caseCourante.estOuvertEst():
-                self.setCaseCourante(caseCourante.getCaseEst())
+                if caseCourante.estOuvertSud():
+                    self.setCaseCourante(caseCourante.getCaseSud())
 
 
-            else:
+                else:
 
-                deplacement += 1
+                    deplacement += 1
 
-        elif deplacement == 3:
+            elif deplacement == 2:
 
-            if caseCourante.estOuvertOuest():
-                self.setCaseCourante(caseCourante.getCaseOuest())
-
-
-            else:
-
-                deplacement = 0
+                if caseCourante.estOuvertEst():
+                    self.setCaseCourante(caseCourante.getCaseEst())
 
 
+                else:
 
+                    deplacement += 1
+
+            elif deplacement == 3:
+
+                if caseCourante.estOuvertOuest():
+                    self.setCaseCourante(caseCourante.getCaseOuest())
+
+                else:
+                    deplacement = 0
 
     def avancerNord(self):
         caseCourante = self.__caseCourante
@@ -119,6 +115,10 @@ class Brutus(zombieClass):
         else:
             print("Vous tentez de parler à un cadavre... Il est temps que vous sortiez de ce labyrinthe")
 
+
+    def contactJoueur(self, joueur):
+        if joueur.getCaseCourante() == self.__caseCourante:
+            self.combattre(joueur)
 
 
 

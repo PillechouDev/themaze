@@ -19,6 +19,9 @@ class Joueur:
 
     def getEnergie(self):
         """ Renvoie le niveau d'énergie du joueur. """
+        if self.__energie <= 0:
+            self.__energie = 0
+        print(self.__energie)
         return self.__energie
 
     def setEnergie(self, valeur):
