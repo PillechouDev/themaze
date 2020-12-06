@@ -40,13 +40,13 @@ class Richtofen(Personnage):
                 print("Nein Nein Nein! Ce n'est ni de l'allemand, ni du français, ni de l'anglais... Pouvez-vous répéter?")
                 self.parler(joueur)
         else:
-            obtenu = 0
+            obtenu = False
             for obj in sac:
                 if obj == Kronorium.getInstance():
-                    obtenu = 1
+                    obtenu = True
 
 
-            if obtenu == 1:
+            if obtenu == True:
                 print("Richtofen: Je t'ai déjà donné le Kronorium... Souhaites-tu peut être t'engager pour le IIIème Reich?")
 
             else:
