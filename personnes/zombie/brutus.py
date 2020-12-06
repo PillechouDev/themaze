@@ -27,12 +27,12 @@ class Brutus(zombieClass):
 
     def avancerAleatoirement(self):
         caseCourante = self.__caseCourante
-        print(caseCourante)
+
         deplacement = random.randint(0,3)
         if deplacement == 0:
             if caseCourante.estOuvertNord():
                 self.setCaseCourante(caseCourante.getCaseNord())
-                print("déplacé nord")
+
             else:
                 deplacement += 1
 
@@ -40,7 +40,7 @@ class Brutus(zombieClass):
 
             if caseCourante.estOuvertSud():
                 self.setCaseCourante(caseCourante.getCaseSud())
-                print("déplacé sud")
+
 
             else:
 
@@ -50,7 +50,7 @@ class Brutus(zombieClass):
 
             if caseCourante.estOuvertEst():
                 self.setCaseCourante(caseCourante.getCaseEst())
-                print("déplacé Est")
+
 
             else:
 
@@ -60,7 +60,7 @@ class Brutus(zombieClass):
 
             if caseCourante.estOuvertOuest():
                 self.setCaseCourante(caseCourante.getCaseOuest())
-                print("déplacé Ouest")
+
 
             else:
 

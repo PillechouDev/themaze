@@ -25,9 +25,11 @@ class Zombie(zombieClass):
         if self._mort == False:
             discours = ['vous attaque', 'crie', 'vous cours dessus', 'hurle']
             print("Un zombie " + " " + discours[random.randint(0, 3)])
-            input()
+            print("Un combat se lance")
+            self.combattre(joueur)
+
         else:
-            return "Rien ne se passe"
+            print("Un zombie mort")
 
 
     def parler(self, joueur):

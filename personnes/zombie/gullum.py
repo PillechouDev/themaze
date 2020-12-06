@@ -28,9 +28,10 @@ class Gullum(zombieClass):
         if self._mort == False:
             discours = ['vous attaque', 'crie', 'vous cours dessus', 'hurle']
             print("Un gullum " + " " + discours[random.randint(0, 3)])
-            input()
+            print("Un combat se lance")
+            self.combattre(joueur)
         else:
-            return "Rien ne se passe"
+            print("Un gollum mort")
 
 
     def parler(self, joueur):

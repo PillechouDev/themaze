@@ -94,6 +94,16 @@ def ramasser():
         case.getObjets().clear()  # On est obliger de tout supprimer après avoir ramassé, car on ne peut pas modifier la liste sur laquelle on itere...
     input()
 
+def caresser():
+    personnages = joueur.getCaseCourante().getPersonnages()
+    if len(personnages) == 0:
+        print("Vous caressez le mur")
+    else:
+        for personnage in personnages:
+            personnage.caresser(joueur)
+    input()
+
+
 def sac():
     sac = joueur.getSac()
     if (len(sac)) == 0:
@@ -151,7 +161,8 @@ choixJoueur = {
     "ramasser" : ramasser,
     "sac" : sac,
     "parler" : parler,
-    "combattre" : combattre
+    "combattre" : combattre,
+    "caresser" : caresser
 }
 # now, to clear the screen
 
@@ -225,7 +236,7 @@ for i in range(10):
     cadavre = Cadavre()
     l.deposerPersonneAleatoirement(cadavre)
     l.deposerPersonneAleatoirement(zombie)
-for i in range(7):
+for i in range(100):
     dog = Dog()
     l.deposerPersonneAleatoirement(dog)
 for i in range(5):

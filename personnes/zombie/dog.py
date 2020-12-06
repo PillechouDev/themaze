@@ -29,34 +29,45 @@ class Dog(zombieClass):
             return "Un chien zombie vous regarde alléché"
 
     def rencontrer(self, joueur):
-        """ Affiche un message de salutation au joueur.
-        """
-        if self._mort == True:
-            return "rien ne se passe"
-        if self._nourri == True:
-            print("Le chien vous ramène un os de zombie")
-            print("Vous le lancez au loin")
-            print("le chien vous le ramène en aboyant")
-            return "Vous le caressez"
+        sac = joueur.getSac()
+        for obj in sac:
+            if obj == "Un morceau de chair de zombie":
+                print("Le chien zombie semble être attiré par la chair putréfiée dans votre sac")
+                print("Vous décidez de lui donner")
+                print("Le chien se laisse caresser tandis qu'il mange la chair de zombie")
+                print("Le chien vous laisse partir !")
         else:
-            discours = ['vous attaque', 'crie', 'vous cours dessus', 'hurle']
-            print("Un chien zombie " + " " + discours[random.randint(0,3)])
-            a = input()
-            """Méthode secrète permettant de ne pas avoir a affronter le chien"""
-            if a== "caresser":
-                """caresser un chien zombie ne semble pas être une bonne idée... Sauf si on possède de la chair putréfiée"""
-                sac = joueur.getSac()
-                if (len(sac)) == 0:
-                    if "Chair putréfiée" in sac:
-                        print("Le chien vous mord la main")
+            if self._mort == False:
+                discours = ['vous attaque', 'crie', 'vous cours dessus', 'hurle']
+                print("Un chien zombie " + " " + discours[random.randint(0, 3)])
+                print("Un combat se lance")
+                self.combattre(joueur)
+            else:
+                print("Un chien zombie mort")
 
-                    else:
-                        for obj in sac:
-                            if obj == "Un morceau de chair de zombie":
-                                print("Le chien zombie semble être attiré par la chair putréfiée dans votre sac")
-                                print("Vous décidez de lui donner")
-                                print("Le chien se laisse caresser tandis qu'il mange la chair de zombie")
-                                print("Le chien vous laisse partir !")
+
+
+
+
+
+
+
+
+
+
+    def caresser(self, joueur):
+        sac = joueur.getSac()
+        if (len(sac)) == 0:
+            if "Chair putréfiée" in sac:
+                print("Le chien vous mord la main")
+
+            else:
+                for obj in sac:
+                    if obj == "Un morceau de chair de zombie":
+                        print("Le chien zombie semble être attiré par la chair putréfiée dans votre sac")
+                        print("Vous décidez de lui donner")
+                        print("Le chien se laisse caresser tandis qu'il mange la chair de zombie")
+                        print("Le chien vous laisse partir !")
 
 
     def parler(self, joueur):

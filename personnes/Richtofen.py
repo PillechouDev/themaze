@@ -21,7 +21,7 @@ class Richtofen(Personnage):
         return "Un officier Allemand "
 
     def rencontrer(self, joueur):
-        discours = ["a completer", "je ferais ca apres", "vive les nazombies"]
+        discours = ["Mouhahah je sais tout ", "hmmm ", "Oui ? "]
         print("Richtofen : "+ discours[random.randint(0,2)])
 
 

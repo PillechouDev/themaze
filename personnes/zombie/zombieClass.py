@@ -48,7 +48,7 @@ class zombieClass(Personnage):
         self._vie -= joueur.degat
 
     def combattre(self,joueur):
-        if self._mort == False:
+        while self._mort == False:
             print("Vous tentez d'attaquer le zombie")
             """lorsque le joueur attaque, le zombie a une chance d'esquiver la balle
             ici, on considère qu'il a une chance sur 10 d'esquiver la balle"""
@@ -56,25 +56,28 @@ class zombieClass(Personnage):
             if chance == 1:
                 # le zombie esquive la balle
                 print("Le zombie esquive la balle et vous attaque")
-                joueur.setEnergie(joueur,joueur.getEnergie()-self._degat)
+                joueur.setEnergie(joueur.getEnergie()-self._degat)
+                input()
             else:
                 # le zombie se prend la balle
                 print("le zombie se prend la balle")
                 self._perdrevie(joueur)
+                input()
                 if self._vie == 0:
                     print("Vous avez tué le zombie")
                     self._mort = True
+                    input()
                 else:
                     """on conidère qu'un zombie a une chance sur deux d'attaquer après s'être prit une balle"""
                     etourdissement = random.randint(1,2)
                     if etourdissement == 1:
                         print("Le zombie est étourdit, il ne vous attaque pas")
+                        input()
                     else:
-                        degat = self._degat
-                        joueur.perdreEnergie(degat)
+                        joueur.setEnergie(joueur.getEnergie()-self._degat)
                         print("Le zombie vous attaque, il vous enlève votre vie")
-        else:
-            print("A quoi bon ? Le zombie est déjà mort...")
+                        input()
+
 
     def ramasser(self, joueur):
         chair = Chair()

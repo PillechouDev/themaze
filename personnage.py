@@ -21,3 +21,10 @@ class Personnage:
     def combattre(self):
         """ Initie un combat """
         raise AbstractMethodCallException()  # Méthode abstraite
+
+    def caresser(self):
+        """ Initie un combat """
+        raise AbstractMethodCallException()  # Méthode abstraite
+
+
+
