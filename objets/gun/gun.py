@@ -29,6 +29,7 @@ class Gun:
         choix = input("souhaitez-vous equiper l'arme [o/n]")
         if choix in ['o', 'O', 'OUI', 'oui']:
             joueur.degat = joueur.degat + self.damage
+        else : print("vous n'avez equipé aucune arme")
 
     def getDamage(self, joueur):
         joueur = Joueur()

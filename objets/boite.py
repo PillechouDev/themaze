@@ -19,9 +19,9 @@ class Boite:
 
         if joueur.removeArgent(950):
 
-            contenus = ['M14 (arme de poing)', 'L96A1 (sniper)', 'Galil', 'ThunderGun', 'rien du tout']
+            contenus = ['M14 (fusil tactique)', 'L96A1 (sniper)', 'Galil', 'ThunderGun', 'rien du tout']
             print("vous avez eu :"+ contenus[random.randint(0,4)])
-            if contenus == 'M14 (arme de poing)':
+            if contenus == 'M14 (fusil tactique)':
                 joueur.mettreObjetDansLeSac(M14.getInstance())
 
             elif contenus == 'L96A1 (sniper)':
