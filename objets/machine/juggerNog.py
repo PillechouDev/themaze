@@ -20,7 +20,8 @@ class JuggerNog(Machine):
             # Dans le cadre où la classe/méthode éléctricité existe.
             print("yes")
             joueur.removeArgent(self.prix)
+            print(joueur.getEnergie())
             joueur.setEnergie(joueur.getEnergie()+25)
-
+            print(joueur.getEnergie())
         else:
             return "Vous n'avez pas assez d'argent"
