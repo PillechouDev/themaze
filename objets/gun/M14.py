@@ -1,6 +1,6 @@
 from objets.gun.gun import Gun
 
-"""Class L96A1 représente un objet que l'on peut ramasser et que le joueur peut transporter et utiliser à partir de son sac"""
+"""Class M14 représente un objet que l'on peut ramasser et que le joueur peut transporter et utiliser à partir de son sac"""
 
 class M14 (Gun):
 
