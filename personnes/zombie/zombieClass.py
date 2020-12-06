@@ -66,6 +66,7 @@ class zombieClass(Personnage):
                     drop = random.randint(1,10)
 
                     print("Vous avez tué le zombie")
+                    joueur.addArgent(250)
                     if drop == 1:
                         print("Vous trouvez sur le cadavre un morceau de chair, vous décidez de le garder")
                         chair = Chair()
