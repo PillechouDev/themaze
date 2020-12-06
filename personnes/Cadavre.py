@@ -13,11 +13,11 @@ class Cadavre(Personnage):
 
     def __init__(self):
         self._argent = random.randint(0, 500)  # Un cadavre porte alétoirement de l'argent sur lui
-        self.__fouille=False #Booleen permettant de savoir si il est déja fouillé ou non
+        self._fouille=False #Booleen permettant de savoir si il est déja fouillé ou non
     def rencontrer(self, joueur):
         """Phase de rencontre avec le joueur"""
         print("Vous trouvez un cadavre par terre\nVoulez-vous le fouillez ? (oui/non)")
-        if not self.__fouille:
+        if not self._fouille:
             try:
                 imput = str(input())  # On force le string
                 if (imput == "oui"):
@@ -31,7 +31,7 @@ class Cadavre(Personnage):
                 # Gestion des erreur en général
                 print("Je n'ai pas bien compris veuillez reessayer")
                 self.rencontrer(joueur) #Relance de la méthode
-        elif self.__fouille:
+        elif self._fouille:
             print("Vous avez déja fouillé ce cadavre ! ")
 
     def parler(self, joueur):
@@ -49,6 +49,6 @@ class Cadavre(Personnage):
             joueur.addArgent(self._argent)
             print("Vous possédez " + joueur._argent + " $")
             self._argent = 0 #Mise à zero pour le cadavre
-            self.__fouille=True #Le cadavre à été fouillé et dépouillé
+            self._fouille=True #Le cadavre à été fouillé et dépouillé
         except:
             pass
