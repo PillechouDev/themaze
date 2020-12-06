@@ -13,7 +13,6 @@ class Cadavre(Personnage):
 
     def __init__(self):
         self._argent = random.randint(0, 500)  # Un cadavre porte alétoirement de l'argent sur lui
-        # self._arme = [] #TODO : En attendant les armes
         self.__fouille=False #Booleen permettant de savoir si il est déja fouillé ou non
     def rencontrer(self, joueur):
         """Phase de rencontre avec le joueur"""
