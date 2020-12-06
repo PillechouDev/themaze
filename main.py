@@ -17,7 +17,7 @@ from personnes.zombie.zombie import Zombie
 def avancerNord():
     try:
         joueur.avancerNord()
-        brutus.avancerNord()
+        brutus.avancerAleatoirement()
 
     except:
         print("Ouch, ce mur fait mal...")
@@ -26,7 +26,7 @@ def avancerNord():
 def avancerSud():
     try:
         joueur.avancerSud()
-        brutus.avancerSud()
+        brutus.avancerAleatoirement()
     except:
         print("Ouch, ce mur fait mal...")
         input()
@@ -34,7 +34,7 @@ def avancerSud():
 def avancerEst():
     try:
         joueur.avancerEst()
-        brutus.avancerEst()
+        brutus.avancerAleatoirement()
 
 
     except:
@@ -44,7 +44,7 @@ def avancerEst():
 def avancerOuest():
     try:
         joueur.avancerOuest()
-        brutus.avancerOuest()
+        brutus.avancerAleatoirement()
 
     except:
         print("Ouch, ce mur fait mal...")

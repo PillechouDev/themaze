@@ -2,6 +2,8 @@ import random
 from personnes.zombie.zombieClass import zombieClass
 from labyrinthe.labyrinthe import Case
 
+from themaze.joueur import Joueur
+
 
 class Brutus(zombieClass):
     """ Cette classe représente un gullum. Le gullum est un zombie infligeant plus de dégat mais ayant moins de vie. """
@@ -21,8 +23,53 @@ class Brutus(zombieClass):
         self.__caseCourante = case
         case.ajouterBrutus(self)
 
+    def avancerAleatoirement(self):
+        caseCourante = self.__caseCourante
+        print(caseCourante)
+        deplacement = random.randint(0,3)
+        if deplacement == 0:
+            if caseCourante.estOuvertNord():
+                self.setCaseCourante(caseCourante.getCaseNord())
+                print("déplacé nord")
+            else:
+                deplacement += 1
+
+        elif deplacement == 1:
+
+            if caseCourante.estOuvertSud():
+                self.setCaseCourante(caseCourante.getCaseSud())
+                print("déplacé sud")
+
+            else:
+
+                deplacement += 1
+
+        elif deplacement == 2:
+
+            if caseCourante.estOuvertEst():
+                self.setCaseCourante(caseCourante.getCaseEst())
+                print("déplacé Est")
+
+            else:
+
+                deplacement += 1
+
+        elif deplacement == 3:
+
+            if caseCourante.estOuvertOuest():
+                self.setCaseCourante(caseCourante.getCaseOuest())
+                print("déplacé Ouest")
+
+            else:
+
+                deplacement = 0
+
+
+
+
     def avancerNord(self):
         caseCourante = self.__caseCourante
+        print(caseCourante)
         if caseCourante.estOuvertNord():
             self.setCaseCourante(caseCourante.getCaseNord())
             print("déplacé nord")
