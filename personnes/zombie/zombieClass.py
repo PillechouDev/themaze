@@ -7,7 +7,7 @@ import random
 
 from exceptions import AbstractMethodCallException
 
-from themaze.objets.Chair import Chair
+from objets.Chair import Chair
 
 
 class zombieClass(Personnage):
