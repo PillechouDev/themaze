@@ -56,7 +56,7 @@ class zombieClass(Personnage):
             if chance == 1:
                 # le zombie esquive la balle
                 print("Le zombie esquive la balle et vous attaque")
-                joueur.perdreEnergie(self._degat)
+                joueur.setEnergie(joueur,joueur.getEnergie()-self._degat)
             else:
                 # le zombie se prend la balle
                 print("le zombie se prend la balle")
