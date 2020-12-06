@@ -4,7 +4,7 @@ Permet de transporter plus d'objet => Inclure limite au sac
 """
 from objets.machine.Machine import Machine
 
-class muleKick(Machine):
+class MuleKick(Machine):
 
     def __init__(self):
         self.prix = 2000

@@ -1,16 +1,22 @@
 import os
-from config import Config
-from labyrinthe.labyrinthe import Labyrinthe
-from joueur import Joueur
-from objets.potion import Potion
-from personnes.Dempsey import Dempsey
 import random
 
+from config import Config
+from joueur import Joueur
+from labyrinthe.labyrinthe import Labyrinthe
+from objets.boite import Boite
+from objets.machine.Electricite import Electricite
+from objets.potion import Potion
+from personnes.Cadavre import Cadavre
+
+from personnes.Dempsey import Dempsey
+from personnes.Maxis import Maxis
 from personnes.Nikolai import Nikolai
 from personnes.Richtofen import Richtofen
 from personnes.Takeo import Takeo
-
 from personnes.zombie.brutus import Brutus
+from personnes.zombie.dog import Dog
+from personnes.zombie.gullum import Gullum
 from personnes.zombie.zombie import Zombie
 
 
@@ -142,7 +148,6 @@ choixJoueur = {
 }
 # now, to clear the screen
 
-#todo : Petit menu principale à faire
 cls()
 
 print("""
@@ -162,20 +167,40 @@ print("""
 
 
 """)
-input("   Appuyer sur 'Entrée' pour entrer dans le labyrinthe")
+joueur = Joueur("X",100)
 
+play=False
+while play==False:
+    try:
+        entree = int(input("   Menu Principal \n    ___________\n 1. Jouer \n 2.Paramètres \n 3.Quitter \n \n"))
 
+        if (entree == 1):
+            play = True
+        elif (entree == 2):
+            Config.getInstance().showMenu(joueur)
+        elif (entree == 3):
+            play = False
+            exit()
+        cls()
+    except ValueError:
+        print("Mauvaise Valeur")
 cls()
 
 # Création des objets
 # TODOCHECK: récupérer les attributs via un menu de configuration
 l = Labyrinthe(Config.getInstance().getWidth(),Config.getInstance().getHeight())
-joueur = Joueur("X",100)
+
+
+
+
+
+#On dépose les personnages prncipaux
 l.deposerJoueurAleatoirement(joueur)
 l.deposerPersonneAleatoirement(Nikolai.getInstance())
 l.deposerPersonneAleatoirement(Takeo.getInstance())
 l.deposerPersonneAleatoirement(Dempsey.getInstance())
 l.deposerPersonneAleatoirement(Richtofen.getInstance())
+l.deposerPersonneAleatoirement(Maxis.getInstance())
 
 
 # Generation de 70 potions aléatoirement
@@ -188,9 +213,35 @@ for i in range(70):
 brutus = Brutus()
 l.deposerBrutusAleatoirement(brutus)
 
+for i in range(10):
+    zombie = Zombie()
+    cadavre = Cadavre()
+    l.deposerPersonneAleatoirement(cadavre)
+    l.deposerPersonneAleatoirement(zombie)
+for i in range(7):
+    dog = Dog()
+    l.deposerPersonneAleatoirement(dog)
+for i in range(5):
+    gollum = Gullum()
+    l.deposerPersonneAleatoirement(gollum)
 
 
-while True: #todo : endgame ?
+#On dépose toutes les machines
+#TODO : Prob atout ?
+"""
+doubletap = DoubleTap()
+electricité = Electricite()
+juggernog = juggerNog()
+"""
+for i in range(2):
+    boite = Boite()
+    l.deposerObjetAleatoirement(boite)
+
+
+
+
+
+while Maxis.getInstance().getEndgame()==False:
     #cls()  # Effacer la console
     joueur.printEnergie()
     print()

@@ -4,7 +4,7 @@ Permet une seconde chance au joueur sans vie
 from objets.machine.Machine import Machine
 
 
-class quickRevive(Machine):
+class QuickRevive(Machine):
 
     def __init__(self):
         self.prix = 3000

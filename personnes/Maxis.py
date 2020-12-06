@@ -29,6 +29,12 @@ class Maxis(Personnage):
     def description(self):
         return "Maxis"
 
+    def getEndgame(self):
+        if self.richtofen == True and self.dempsey == True and self.takeo == True and self.nikolai == True:
+            return True
+        else:
+            return False
+
     def rencontrer(self, joueur):
         print("Maxis : J'attendais ta venue "+joueur.getNom()+ ", as-tu tous les objets de ceux fameux personanage? ")
         sac = joueur.getSac()
@@ -55,12 +61,8 @@ class Maxis(Personnage):
                         print("La clé d'invocation ! Piece maitresse de tout une oeuvre ! ")
                     elif obj == Kronorium.getInstance():
                         self.richtofen=True
-                        print(Kronorium.getInstance().description) #Todo : Petite phrase
+                        print("Le fameux livre ou l'histoire est écrite")
 
-            if self.richtofen ==True and self.dempsey==True and self.takeo==True and self.nikolai==True:
-                #Si tout les objets ont été récolté alors c'est la fin de la partie
-                print("Oh tu ma tout trouvé merci beaucoup")
-                #TODO : END GAME
 
         elif entree in['n','N',"non",'NON']:
             print("Alors dans ce cas je te laisse chercher les autres ! ")

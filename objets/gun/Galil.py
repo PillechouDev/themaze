@@ -1,11 +1,12 @@
-from gun import Gun
-    """ Class Galil représente une arme que l'on peut ramasser et que le joueur peut transporter et utiliser à partir de son sac """
-class Galil (Gun):
+from objets.gun.gun import Gun
+
+
+class Galil(Gun):
 
     def __init(self):
         """ ici on défni les dégats et les munitions de base """
         self.damage = 20
-        self.munition = 40
+        self._munition = 40
 
     def description(self):
         """ Renvoie une description de l'objet, pour pouvoir l'afficher. """

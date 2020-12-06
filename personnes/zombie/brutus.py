@@ -2,7 +2,6 @@ import random
 from personnes.zombie.zombieClass import zombieClass
 from labyrinthe.labyrinthe import Case
 
-from themaze.joueur import Joueur
 
 """
 Classe faite par : Mathieu et Romain 

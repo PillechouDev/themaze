@@ -3,7 +3,7 @@ from objets.machine.Machine import Machine
 le joueur à plus de vie
 """
 
-class juggerNog(Machine):
+class JuggerNog(Machine):
 
     def __init__(self):
         self.prix = 2500

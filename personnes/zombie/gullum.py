@@ -1,5 +1,5 @@
 import random
-from themaze.personnes.zombie.zombieClass import zombieClass
+from personnes.zombie.zombieClass import zombieClass
 
 """
 Classe faite par : Romain 
