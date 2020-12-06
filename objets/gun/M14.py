@@ -1,6 +1,8 @@
-from objet import ObjetRamassable
+from gun import Gun
 
-class M14 (ObjetRamassable):
+    """Class L96A1 représente un objet que l'on peut ramasser et que le joueur peut transporter et utiliser à partir de son sac"""
+
+class M14 (Gun):
 
     def __init(self):
     """ ici on défni les dégats et les munitions de base """

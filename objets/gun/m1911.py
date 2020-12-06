@@ -1,6 +1,6 @@
 """Arme de départ contenant 1 balle """
 from gun import Gun
-
+    """ Class M1911 représente une arme que l'on peut ramasser et que le joueur peut transporter et utiliser à partir de son sac """
 class M1911(Gun):
 
     def __init(self):

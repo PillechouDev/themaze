@@ -1,5 +1,5 @@
 from gun import Gun
-
+    """ Class Galil représente une arme que l'on peut ramasser et que le joueur peut transporter et utiliser à partir de son sac """
 class Galil (Gun):
 
     def __init(self):

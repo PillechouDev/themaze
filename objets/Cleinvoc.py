@@ -1,7 +1,10 @@
 from objet import ObjetRamassable
 
+"""
+Classe faite par : Axel Danglot
+"""
 class CleInvoc(ObjetRamassable):
-
+    """ Cette classe représente la clef d'invocation donnée par Dempsey """
     instance = None
 
     @staticmethod
