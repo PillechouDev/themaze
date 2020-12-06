@@ -12,9 +12,9 @@ class Boite:
         self.prix = 950
 
     def description(self):
-        raise AbstractMethodCallException()
+        return "ceci est la fameuse boite magique"
 
-    def utliser(self, joueur):
+    def ramasser(self, joueur):
         """ Cette métode est appellée lorsque le joueur veut utiliser la boite"""
 
         if joueur.removeArgent(950):
