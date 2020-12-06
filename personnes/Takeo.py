@@ -5,6 +5,7 @@ import random
 
 """
 Classe faite par Mathieu Legrand
+Faite par Legrand Mathieu
 """
 
 

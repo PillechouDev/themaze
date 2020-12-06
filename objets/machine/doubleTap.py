@@ -1,5 +1,6 @@
 """
 Double dégat sur les armes
+Faite par Legrand Mathieu
 """
 from objets.machine.Electricite import Electricite
 from objets.machine.Machine import Machine

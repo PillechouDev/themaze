@@ -3,6 +3,7 @@ from objets.machine.Electricite import Electricite
 
 """
 le joueur à plus de vie
+Faite par Legrand Mathieu
 """
 
 class JuggerNog(Machine):

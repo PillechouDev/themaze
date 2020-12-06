@@ -1,6 +1,6 @@
 """
 Permet de transporter plus d'objet => Inclure limite au sac
-
+Faite par Legrand Mathieu
 """
 from objets.machine.Machine import Machine
 from objets.machine.Electricite import Electricite

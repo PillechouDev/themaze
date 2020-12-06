@@ -1,5 +1,5 @@
 from objet import ObjetRamassable
-
+# Faite par Legrand Mathieu
 
 class Katana(ObjetRamassable):
     instance = None

@@ -1,7 +1,8 @@
 "Classe mère machine"
 from exceptions import AbstractMethodCallException
 
-""" Cette interface représente un atout que l'on peut acheter et que le joueur peut consommer"""
+""" Cette interface représente un atout que l'on peut acheter et que le joueur peut consommer
+Faite par Legrand Mathieu """
 
 class Machine:
     """ On peut acheter à la machine """

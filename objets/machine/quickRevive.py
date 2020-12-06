@@ -1,5 +1,6 @@
 """
 Permet une seconde chance au joueur sans vie
+Faite par Legrand Mathieu
 """
 from objets.machine.Machine import Machine
 from objets.machine.Electricite import Electricite
