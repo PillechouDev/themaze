@@ -7,8 +7,15 @@ from labyrinthe.labyrinthe import Labyrinthe
 from objets.boite import Boite
 from objets.machine.Electricite import Electricite
 from objets.potion import Potion
-from personnes.Cadavre import Cadavre
 
+from objets.machine.doubleTap import DoubleTap
+from objets.machine.juggerNog import JuggerNog
+from objets.machine.muleKick import MuleKick
+from objets.machine.quickRevive import QuickRevive
+
+
+
+from personnes.Cadavre import Cadavre
 from personnes.Dempsey import Dempsey
 from personnes.Maxis import Maxis
 from personnes.Nikolai import Nikolai
@@ -237,6 +244,18 @@ for i in range(2):
     boite = Boite()
     l.deposerObjetAleatoirement(boite)
 
+#Déposer les atouts
+doubleTap = DoubleTap()
+l.deposerObjetAleatoirement(doubleTap)
+
+juggerNog = JuggerNog()
+l.deposerObjetAleatoirement(juggerNog)
+
+muleKick = MuleKick()
+l.deposerObjetAleatoirement(muleKick)
+
+quickRevive = QuickRevive()
+l.deposerObjetAleatoirement(quickRevive)
 
 
 

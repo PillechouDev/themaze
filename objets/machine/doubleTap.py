@@ -7,7 +7,6 @@ from objets.machine.Machine import Machine
 
 class DoubleTap(Machine):
 
-
     def __init__(self):
         self.prix = 2000
 
