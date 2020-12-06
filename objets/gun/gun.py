@@ -1,5 +1,7 @@
 from exceptions import AbstractMethodCallException
 from joueur import Joueur
+from objet import ObjetRamassable
+
 """
 Class mère Gun représente un objet que l'on peut ramasser et que le joueur peut transporter et utiliser à partir de son sac
 
@@ -13,7 +15,8 @@ Class mère Gun représente un objet que l'on peut ramasser et que le joueur peu
 
 """
 
-class Gun:
+
+class Gun(ObjetRamassable):
 
     def ramasser(self, joueur):
         """ Met l'objet dans le sac du joueur. """
@@ -21,7 +24,7 @@ class Gun:
 
     def description(self):
         """ Renvoie une description de l'objet, pour pouvoir l'afficher. """
-        raise AbstractMethodCallException() # Méthode abstraite
+        raise AbstractMethodCallException()  # Méthode abstraite
 
     def utiliser(self, joueur):
         joueur = Joueur()
@@ -29,7 +32,8 @@ class Gun:
         choix = input("souhaitez-vous equiper l'arme [o/n]")
         if choix in ['o', 'O', 'OUI', 'oui']:
             joueur.degat = joueur.degat + self.damage
-        else : print("vous n'avez equipé aucune arme")
+        else:
+            print("vous n'avez equipé aucune arme")
 
     def getDamage(self, joueur):
         joueur = Joueur()
