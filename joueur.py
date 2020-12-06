@@ -15,9 +15,7 @@ class Joueur:
         self.nom = "" #Ajout d'un nom pour un peu plus d'interaction  et d'immersion
         self.degat = 5 #Ajout d'une caractéristique d'attaque du joueur pour les combats.
         self.setEnergie(energieInitiale)
-        #Todo : Ajout atout list
-        #Todo : merthode addAtout
-        #Todo : methode getAtout
+
 
     def getEnergie(self):
         """ Renvoie le niveau d'énergie du joueur. """

@@ -267,7 +267,6 @@ while Maxis.getInstance().getEndgame()==False:
     l.afficher()
     print()
 
-    # TODO: oulàlà que c'est mocche, utiliser un design pattern   !
     action = input("Que dois-je faire ? ")
     if action in choixJoueur:
         execute(choixJoueur[action])

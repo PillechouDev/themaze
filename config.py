@@ -3,7 +3,6 @@
 
 Classe faite par Yohan Widogue
 """
-#TODO : Nombre de panneau electrique
 class Config:
     """
     Classe de configuration pour le jeu en singleton car il y'a qu'une seule instence de Config
