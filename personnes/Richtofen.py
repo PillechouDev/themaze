@@ -23,6 +23,7 @@ class Richtofen(Personnage):
     def rencontrer(self, joueur):
         discours = ["Mouhahah je sais tout ", "hmmm ", "Oui ? "]
         print("Richtofen : "+ discours[random.randint(0,2)])
+        self.parler(joueur)
 
 
     def parler(self, joueur):
@@ -31,6 +32,7 @@ class Richtofen(Personnage):
             print("Richtofen : Prenez le Kronorium... Vous êtes le seul à pouvoir combler la faille")
             entree = input("#> Voulez vous prendre ce livre ? [o/n]")
             if entree in ['o', 'O', 'OUI', 'oui']:
+                print("fais en bon usage")
                 joueur.mettreObjetDansLeSac(Kronorium.getInstance())
             elif entree in ['n','N','NON','non']:
                 print("Vous avez refusé le Kronorium")

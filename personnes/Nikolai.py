@@ -38,7 +38,7 @@ class Nikolai(Personnage):
         sac = joueur.getSac()
         #On fait une condition pour savoir si le sac est vide afin de ne pas boucler sur du vide
         if (len(sac)) == 0:
-            print("Nikolai : Faut que j'arrette de boire... Tiens ma vodka c'est ma dernière")
+            print("Nikolai : Faut que j'arrete de boire... Tiens ma vodka c'est ma dernière")
             entree = input("#> Voulez vous prendre sa vodka ? [o/n]")
             if entree in ['o', 'O', 'OUI', 'oui']:
                 joueur.mettreObjetDansLeSac(Vodka.getInstance())  #Mise en place de l'instance dans le sac

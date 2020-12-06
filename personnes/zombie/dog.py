@@ -1,6 +1,8 @@
 from personnes.zombie.zombieClass import zombieClass
 import random
 
+from objets.Chair import Chair
+
 """
 Classe faite par : Romain 
 """
@@ -30,20 +32,31 @@ class Dog(zombieClass):
 
     def rencontrer(self, joueur):
         sac = joueur.getSac()
-        for obj in sac:
-            if obj == "Un morceau de chair de zombie":
-                print("Le chien zombie semble être attiré par la chair putréfiée dans votre sac")
-                print("Vous décidez de lui donner")
-                print("Le chien se laisse caresser tandis qu'il mange la chair de zombie")
-                print("Le chien vous laisse partir !")
-        else:
-            if self._mort == False:
+        chair = Chair()
+        if len(sac) == 0:
+            if not self._mort:
                 discours = ['vous attaque', 'crie', 'vous cours dessus', 'hurle']
                 print("Un chien zombie " + " " + discours[random.randint(0, 3)])
                 print("Un combat se lance")
                 self.combattre(joueur)
-            else:
-                print("Un chien zombie mort")
+        else:
+            for obj in sac:
+                if obj == chair.description():
+                    print("Le chien zombie semble être attiré par la chair putréfiée dans votre sac")
+                    print("Vous décidez de lui donner")
+                    print("Le chien se laisse caresser tandis qu'il mange la chair de zombie")
+                    print("Le chien vous laisse partir !")
+
+                else:
+                    if not self._mort:
+                        discours = ['vous attaque', 'crie', 'vous cours dessus', 'hurle']
+                        print("Un chien zombie " + " " + discours[random.randint(0, 3)])
+                        print("Un combat se lance")
+                        self.combattre(joueur)
+
+                    else:
+                        print("Un chien zombie mort")
+
 
 
 
