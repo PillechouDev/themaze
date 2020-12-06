@@ -19,7 +19,7 @@ class zombieClass(Personnage):
         - vitesse : vitesse du zombie que l'on compare à celle du joueur pour savoir qui attaque en premier
         - chanceEsquive: plus la chance d'esquiver est faible plus le zombie a de chance d'esquiver la balle
         """
-        self._vie = 10
+        self._vie = 100
         self._degat = 1
         self._chanceEsquive = 10
         self._mort = False

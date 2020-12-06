@@ -12,11 +12,11 @@ class Brutus(zombieClass):
     def __init__(self):
         super().__init__()
         self.__caseCourante = Case()
-        self._vie = 500
-        self._degat = 100
+        self._vie = 300
+        self._degat = 25
         self._chanceEsquive = 7
         self._mort = False
-        self.nom = "Brutus"
+        self._nom = "Brutus"
     def getCaseCourante(self):
         return self.__caseCourante
 

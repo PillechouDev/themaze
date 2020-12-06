@@ -9,7 +9,7 @@ class Gullum(zombieClass):
     """ Cette classe représente un gullum. Le gullum est un zombie infligeant plus de dégat mais ayant moins de vie. """
     def __init__(self):
         super().__init__()
-        self._vie = 5
+        self._vie = 50
         self._degat = 3
         self._chanceEsquive = 7
         self._mort = False
