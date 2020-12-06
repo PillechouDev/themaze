@@ -201,9 +201,6 @@ cls()
 l = Labyrinthe(Config.getInstance().getWidth(),Config.getInstance().getHeight())
 
 
-
-
-
 #On dépose les personnages prncipaux
 l.deposerJoueurAleatoirement(joueur)
 l.deposerPersonneAleatoirement(Nikolai.getInstance())
@@ -248,8 +245,9 @@ for i in range(2):
     l.deposerObjetAleatoirement(boite)
 
 #Déposer les atouts
-doubleTap = DoubleTap()
-l.deposerObjetAleatoirement(doubleTap)
+for i in range(10):
+    doubleTap = DoubleTap()
+    l.deposerObjetAleatoirement(doubleTap)
 
 juggerNog = JuggerNog()
 l.deposerObjetAleatoirement(juggerNog)
