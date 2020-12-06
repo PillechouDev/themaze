@@ -13,8 +13,8 @@ class Brutus(zombieClass):
     def __init__(self):
         super().__init__()
         self.__caseCourante = Case()
-        self._vie = 5
-        self._degat = 3
+        self._vie = 500
+        self._degat = 100
         self._chanceEsquive = 7
         self._mort = False
 
